@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" th:href="@{/styles.css}">
 <head>
     <title>Login Test</title>
 </head>
@@ -11,10 +14,27 @@
 <div th:if="${param.logout}">
     You have been logged out.
 </div>
-<form th:action="@{/login}" method="post">
-    <div><label> User Name : <input type="text" name="username"/> </label></div>
-    <div><label> Password: <input type="password" name="password"/> </label></div>
-    <div><input type="submit" value="Sign In"/></div>
+<div> Log in with your username and password! </div>
+<br>
+<form th:action="@{/login}" class="form-inline" method="post">
+    <div class ="form-group">
+    <div><label> User Name : </label>
+        </div>
+        <div>
+        <input type="text" class="form-control" name="username"/>
+        </div>
+        <br>
+        <div>
+            <label> Password: </label>
+        </div>
+        <div>
+        <input type="password" class="form-control" name="password"/>
+    </div>
+        <br>
+        <div>
+        <button type="submit" class="btn btn-default">Sign In</button>
+        </div>
+    </div>
 </form>
 </body>
 </html>
