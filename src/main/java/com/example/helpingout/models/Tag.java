@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Tag {
+public class Tag extends AbstractEntity{
 
     @Size(min = 2, max = 24, message = "Tags must be between 2-24 characters.")
     @NotBlank
@@ -33,5 +33,9 @@ public class Tag {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<User> getUsers() {
+        return users;
     }
 }

@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-public class User {
+public class User extends AbstractEntity{
 
     @NotBlank(message = "Username is required.")
     @Size(min = 4, max = 12, message = "Username must be 4-12 characters long.")
@@ -107,6 +107,14 @@ public class User {
 
     public void setOrg(Boolean org) {
         isOrg = org;
+    }
+
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    public void addTag(Tag tag) {
+        this.tags.add(tag);
     }
 
     @Override
