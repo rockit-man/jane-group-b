@@ -3,6 +3,9 @@ package com.example.helpingout.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 public class User {
@@ -11,14 +14,24 @@ public class User {
     @GeneratedValue
     private int id;
 
+    @NotBlank(message = "Username is required.")
+    @Size(min = 4, max = 12, message = "Username must be 4-12 characters long.")
     private String username;
 
+    @NotBlank(message = "Last name is required.")
+    @Size(min = 2, max = 50, message = "Last name must be at least 2 characters long.")
     private String lastname;
 
+    @NotBlank(message = "First name is required.")
+    @Size(max = 50, message = "First name must be less than 50 characters long.")
     private String firstname;
 
+    @NotBlank(message = "An email address is required.")
+    @Email(message = "Invalid email. Please try again.")
     private String email;
 
+    @NotBlank(message = "A password is required.")
+    @Size(min = 4, max = 12, message = "Passwords must be 4-12 characters long.")
     private String password;
 
     private String confirmPassword;
