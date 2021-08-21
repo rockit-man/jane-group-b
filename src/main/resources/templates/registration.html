@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap-grid.css">
+    <title>Document</title>
+</head>
+<body>
+<h1 class="my-5">Create Account</h1>
+
+<!-- Register Form-->
+<span class="input-group-text">First and Last Name</span>
+<div class="input-group">
+    <input type="text" aria-label="First Name" class ="form-control">
+    <input type="text" aria-label="Last Name" class ="form-control">
+</div>
+<div class="md-form">
+    <label class="d-flex">Username or Organization Name</label>
+    <input type="text" name="userName" class="form-control validate">
+</div>
+<div class="form-check">
+    <!-- here I believe we can call the id for our boolean class -->
+    <input class="form-check-input" type="checkbox" value="" id="organizationBoolean">
+    <label class="form-check-label">Are you registering as an Organization?</label>
+</div>
+<div class="form-check">
+    <label for="email" class="d-flex">Email</label>
+    <input type="email" id="email" name="email" class="form-control">
+</div>
+<div class="md-form">
+
+    <label for="password" class="d-flex">Password</label>
+    <input type="password" id="password" name="password" class="form-control validate">
+</div>
+<div class="md-form">
+    <label for="password2" class="d-flex">Confirm password</label>
+    <input type="password" id="password2" name="password2" class="form-control">
+</div>
+
+<div class="d-flex justify-content-end">
+    <!-- Placeholder for now to hold the format together -->
+    <a class="rotate-btn text-primary" data-card="my-card" tabIndex="-3">back to login</a>
+</div>
+
+<div class="text-center">
+    <button type="sumbit" class="btn primary-color white-text btn-lg">Create account</button>
+</div>
+
+</form>
+<!-- This is the default script provided by Bootstrap for validation purposes - however, I need more research to figure out how to connect the two -->
+<script>
+      $("#password").on("focusout", function () {
+        if ($(this).val() != $("#password2").val()) {
+          $("#password2").removeClass("valid").addClass("invalid");
+        } else {
+          $("#password2").removeClass("invalid").addClass("valid");
+        }
+      });
+
+      $("#password2").on("keyup", function () {
+        if ($("#password").val() != $(this).val()) {
+          $(this).removeClass("valid").addClass("invalid");
+        } else {
+          $(this).removeClass("invalid").addClass("valid");
+        }
+      });
+    </script>
+</body>
+</html>
