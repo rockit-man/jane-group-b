@@ -3,16 +3,16 @@ package com.example.helpingout.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class User {
-
-    @Id
-    @GeneratedValue
-    private int id;
 
     @NotBlank(message = "Username is required.")
     @Size(min = 4, max = 12, message = "Username must be 4-12 characters long.")
@@ -38,6 +38,9 @@ public class User {
 
     private Boolean isOrg;
 
+    @ManyToMany
+    private final List<Tag> tags = new ArrayList<>();
+
     public User(String username, String lastname, String firstname, String email, String password, String confirmPassword, Boolean isOrg) {
         this.username = username;
         this.lastname = lastname;
@@ -49,10 +52,6 @@ public class User {
     }
 
     public User() {}
-
-    public int getId() {
-        return id;
-    }
 
     public String getUsername() {
         return username;
@@ -108,5 +107,10 @@ public class User {
 
     public void setOrg(Boolean org) {
         isOrg = org;
+    }
+
+    @Override
+    public String toString() {
+        return username;
     }
 }

@@ -39,6 +39,7 @@ public class UserController {
         }
 
         userRepository.save(newUser);
-        return "redirect:";
+        return "redirect:/login";
     }
+
 }
