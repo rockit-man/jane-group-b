@@ -24,7 +24,7 @@
                 </a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#" th:href="@{/user-home}">
+                <a class="nav-link" href="#" th:href="@{/profile-home}">
                     Sign In
                 </a>
             </li>
@@ -41,7 +41,7 @@
 <br>
 <br>
 <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
-<p> This is your user landing page. You'll be able to view your profile here, and make changes. For now, your only
+<p> This is your profile landing page. You'll be able to view your profile here, and make changes. For now, your only
     option is to...</p>
 <form th:action="@{/logout}" method="post">
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Out</button>

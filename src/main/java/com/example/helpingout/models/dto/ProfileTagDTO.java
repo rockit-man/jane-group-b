@@ -1,26 +1,26 @@
 package com.example.helpingout.models.dto;
 
+import com.example.helpingout.models.Profile;
 import com.example.helpingout.models.Tag;
-import com.example.helpingout.models.User;
 
 import javax.validation.constraints.NotNull;
 
-public class UserTagDTO {
+public class ProfileTagDTO {
 
     @NotNull
-    private User user;
+    private Profile profile;
 
     @NotNull
     private Tag tag;
 
-    public UserTagDTO() {}
+    public ProfileTagDTO() {}
 
-    public User getUser() {
-        return user;
+    public Profile getUser() {
+        return profile;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(Profile profile) {
+        this.profile = profile;
     }
 
     public Tag getTag() {

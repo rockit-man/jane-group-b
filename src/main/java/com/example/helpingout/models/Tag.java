@@ -1,8 +1,6 @@
 package com.example.helpingout.models;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -17,7 +15,7 @@ public class Tag extends AbstractEntity{
     private String name;
 
     @ManyToMany(mappedBy = "tags")
-    private final List<User> users = new ArrayList<>();
+    private final List<Profile> profiles = new ArrayList<>();
 
     public Tag(String name) {
         this.name = name;
@@ -35,7 +33,7 @@ public class Tag extends AbstractEntity{
         this.name = name;
     }
 
-    public List<User> getUsers() {
-        return users;
+    public List<Profile> getUsers() {
+        return profiles;
     }
 }

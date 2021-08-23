@@ -1,10 +1,10 @@
 package com.example.helpingout.controllers;
 
+import com.example.helpingout.models.Profile;
 import com.example.helpingout.models.Tag;
-import com.example.helpingout.models.User;
-import com.example.helpingout.models.dto.UserTagDTO;
+import com.example.helpingout.models.dto.ProfileTagDTO;
 import com.example.helpingout.repositories.TagRepository;
-import com.example.helpingout.repositories.UserRepository;
+import com.example.helpingout.repositories.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,10 +18,10 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
-public class UserController {
+public class ProfileController {
 
     @Autowired
-    private UserRepository userRepository;
+    private ProfileRepository profileRepository;
 
     @Autowired
     private TagRepository tagRepository;
@@ -30,51 +30,51 @@ public class UserController {
     @GetMapping("register")
     //"register" is placeholder for registration URI.
     public String displayRegistrationForm(Model model){
-        model.addAttribute("title", "User Registration");
-        model.addAttribute(new User());
+        model.addAttribute("title", "Profile Registration");
+        model.addAttribute(new Profile());
         return "registration";
         //"registration" is placeholder for template.
     }
 
     @PostMapping("register")
     //"register" is placeholder for registration URI.
-    public String processRegistrationForm(@ModelAttribute @Valid User newUser,
+    public String processRegistrationForm(@ModelAttribute @Valid Profile newProfile,
                                           Errors errors, Model model) {
         if(errors.hasErrors()) {
-            model.addAttribute("title", "User Registration");
+            model.addAttribute("title", "Profile Registration");
             return "registration";
             //"registration" is placeholder for template.
         }
 
-        userRepository.save(newUser);
+        profileRepository.save(newProfile);
         return "redirect:/login";
     }
 
     @GetMapping("add-tag")
-    public String displayAddTagForm(@RequestParam Integer userId, Model model){
-        Optional<User> result = userRepository.findById(userId);
-        User user = result.get();
-        model.addAttribute("title", "Add Tag to: " + user.getUsername());
+    public String displayAddTagForm(@RequestParam Integer profileId, Model model){
+        Optional<Profile> result = profileRepository.findById(profileId);
+        Profile profile = result.get();
+        model.addAttribute("title", "Add Tag to: " + profile.getProfileName());
         model.addAttribute("tags", tagRepository.findAll());
-        UserTagDTO userTag = new UserTagDTO();
-        userTag.setUser(user);
-        model.addAttribute("userTag", userTag);
+        ProfileTagDTO profileTag = new ProfileTagDTO();
+        profileTag.setUser(profile);
+        model.addAttribute("profileTag", profileTag);
         // TODO THIS VIEW NEEDS TO BE CREATED. See Java 18.5.5 video at 7:53
         return "add-tag.html";
     }
 
     @PostMapping("add-tag")
-    public String processAddTagForm(@ModelAttribute @Valid UserTagDTO userTag,
+    public String processAddTagForm(@ModelAttribute @Valid ProfileTagDTO userTag,
                                     Errors errors, Model model){
         if (!errors.hasErrors()) {
-            User user = userTag.getUser();
+            Profile profile = userTag.getUser();
             Tag tag = userTag.getTag();
-            if (!user.getTags().contains(tag)) {
-                user.addTag(tag);
-                userRepository.save(user);
+            if (!profile.getTags().contains(tag)) {
+                profile.addTag(tag);
+                profileRepository.save(profile);
             }
-            // TODO: NOT SURE WHERE TO REDIRECT, as of now, "detail" is NOT a created view. "User-home" the same thing?
-            return "redirect:detail?userId=" + user.getId();
+            // TODO: NOT SURE WHERE TO REDIRECT, as of now, "detail" is NOT a created view. "Profile-home" the same thing?
+            return "redirect:detail?userId=" + profile.getId();
         }
         return "redirect:user-home";
     }

@@ -1,22 +1,19 @@
 package com.example.helpingout.models;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Entity
-public class User extends AbstractEntity{
+public class Profile extends AbstractEntity{
 
     @NotBlank(message = "Username is required.")
     @Size(min = 4, max = 12, message = "Username must be 4-12 characters long.")
-    private String username;
+    private String profileName;
 
     @NotBlank(message = "Last name is required.")
     @Size(min = 2, max = 50, message = "Last name must be at least 2 characters long.")
@@ -41,8 +38,8 @@ public class User extends AbstractEntity{
     @ManyToMany
     private final List<Tag> tags = new ArrayList<>();
 
-    public User(String username, String lastname, String firstname, String email, String password, String confirmPassword, Boolean isOrg) {
-        this.username = username;
+    public Profile(String profileName, String lastname, String firstname, String email, String password, String confirmPassword, Boolean isOrg) {
+        this.profileName = profileName;
         this.lastname = lastname;
         this.firstname = firstname;
         this.email = email;
@@ -51,14 +48,14 @@ public class User extends AbstractEntity{
         this.isOrg = isOrg;
     }
 
-    public User() {}
+    public Profile() {}
 
-    public String getUsername() {
-        return username;
+    public String getProfileName() {
+        return profileName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setProfileName(String profileName) {
+        this.profileName = profileName;
     }
 
     public String getLastname() {
@@ -119,6 +116,6 @@ public class User extends AbstractEntity{
 
     @Override
     public String toString() {
-        return username;
+        return profileName;
     }
 }
