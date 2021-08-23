@@ -1,23 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
 <head>
+    <!--    Adding Bootstrap styling-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link th:href="@{/css/styling.css}" rel="stylesheet" />
-    <style>
-       .bd-placeholder-img {
-       font-size: 1.125rem;
-       text-anchor: middle;
-       -webkit-user-select: none;
-       -ms-user-select: none;
-       user-select: none;
-       }
-       @media(min-width: 750px) {
-       .bd-placeholder-img-lg {
-       font-size:3.5rem;
-       }
-       }
-   </style>
-</head>
+
+    <meta charset="utf-8"/>
+    <title>How can I help you?</title>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <a class="navbar-brand" href="#">Navbar</a>
@@ -51,21 +40,12 @@
 <br>
 <br>
 <br>
-<div class="container" margin="50x">
-<h1>How Can I Help?</h1>
-<p>Wow, there's a ton of stuff happening in the world, and not all of them are funny cat videos. You may be
-    wondering "how can I help make a difference in the world today?" That's a great question, and you've come to the
-right place!</p>
-<p>Our website will help you sort by causes that mean something to you, and then you can get in touch with the
-    organizations that work towards those goals. You can work with them to volunteer, donate items or money, or
-    just keep in touch with what's going on.</p>
-<p>Click <a th:href="@{/user-home}">here</a> to sign in.</p>
-
-<div>
-    Don't have an account?
-    <a th:href="@{/registration}">Create an Account</a>
-</div>
-
-</div>
+<h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+<p> This is your user landing page. You'll be able to view your profile here, and make changes. For now, your only
+    option is to...</p>
+<form th:action="@{/logout}" method="post">
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Out</button>
+</form>
 </body>
+</head>
 </html>

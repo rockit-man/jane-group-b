@@ -5,15 +5,61 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" th:href="@{/styles.css}">
 <head>
+
     <title>Login - How Can I Help?</title>
+<!--    Adding Bootstrap styling-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Login </title>
+    <style>
+        div {
+  width: 300px;
+  margin: auto;
+}
+
+    </style>
+
 </head>
-<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+            data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbarsExampleDefault" style>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#" th:href="@{/index}">
+                    Home
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#" th:href="@{/user-home}">
+                    Sign In
+                </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#" th:href="@{/registration}">
+                    Create Account
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<br>
+<br>
+<br>
+<br>
+<body class="text-center">
+
 <div th:if="${param.error}">
     Invalid username and password.
 </div>
 <div th:if="${param.logout}">
     You have been logged out.
 </div>
+
 <br>
 <div> Log in with your username and password! </div>
 <br>
@@ -36,6 +82,21 @@
         <button type="submit" class="btn btn-default">Sign In</button>
         </div>
     </div>
+
+<div>
+    <h2>Sign into your account</h2>
+<form th:action="@{/login}" class="form-signin" method="post">
+    <div><label for="username" class="sr-only"> User Name : </label>
+        <input type="text" class="form-control" placeholder="jsmith123" id="username" name="username" required/>
+    </div>
+    <div><label for="password" class="sr-only"> Password: </label>
+        <input type="password" class="form-control" placeholder="******" id="password" name="password" required/>
+    </div>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
+
 </form>
+</div>
+
 </body>
 </html>
