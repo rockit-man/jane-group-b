@@ -29,7 +29,7 @@ public class UserController {
     // find all users, create, delete
     @GetMapping("register")
     //"register" is placeholder for registration URI.
-    public String displayRegistrationForm(Model model){
+    public String displayRegistrationForm(Model model) {
         model.addAttribute("title", "User Registration");
         model.addAttribute(new User());
         return "registration";
@@ -40,18 +40,18 @@ public class UserController {
     //"register" is placeholder for registration URI.
     public String processRegistrationForm(@ModelAttribute @Valid User newUser,
                                           Errors errors, Model model) {
-        if(errors.hasErrors()) {
+        if (errors.hasErrors()) {
             model.addAttribute("title", "User Registration");
             return "registration";
             //"registration" is placeholder for template.
         }
 
         userRepository.save(newUser);
-        return "redirect:/login";
+        return "user-home";
     }
 
     @GetMapping("add-tag")
-    public String displayAddTagForm(@RequestParam Integer userId, Model model){
+    public String displayAddTagForm(@RequestParam Integer userId, Model model) {
         Optional<User> result = userRepository.findById(userId);
         User user = result.get();
         model.addAttribute("title", "Add Tag to: " + user.getUsername());
@@ -60,12 +60,12 @@ public class UserController {
         userTag.setUser(user);
         model.addAttribute("userTag", userTag);
         // TODO THIS VIEW NEEDS TO BE CREATED. See Java 18.5.5 video at 7:53
-        return "add-tag.html";
+        return "redirect:";
     }
 
     @PostMapping("add-tag")
     public String processAddTagForm(@ModelAttribute @Valid UserTagDTO userTag,
-                                    Errors errors, Model model){
+                                    Errors errors, Model model) {
         if (!errors.hasErrors()) {
             User user = userTag.getUser();
             Tag tag = userTag.getTag();
@@ -76,7 +76,7 @@ public class UserController {
             // TODO: NOT SURE WHERE TO REDIRECT, as of now, "detail" is NOT a created view. "User-home" the same thing?
             return "redirect:detail?userId=" + user.getId();
         }
-        return "redirect:user-home";
+        return "redirect:";
     }
 
 }

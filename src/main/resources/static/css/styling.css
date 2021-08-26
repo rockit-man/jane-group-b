@@ -1,3 +1,19 @@
 body {
-  background-color: #C9D8E1
+    background-color: #C9D8E1
+}
+
+head {
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    @media(min-width: 750px) {
+        .bd-placeholder-img-lg {
+            font-size:3.5rem;
+        }
+    }
 }
