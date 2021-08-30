@@ -14,13 +14,19 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "users")
-public class User extends AbstractEntity implements UserDetails {
+public class User implements UserDetails {
+
+    @Id
+    @GeneratedValue
+    private int id;
 
     private static final long serialVersionUID = 1L;
-    @Id
+
+//    @Id
     @NotBlank(message = "Username is required.")
     @Size(min = 4, max = 20, message = "Username must be 4-20 characters long.")
     private String username;
+
     @NotBlank(message = "A password is required.")
     @Size(min = 4, max = 20, message = "Passwords must be 4-20 characters long.")
     private String password; @Column(name = "account_non_locked")
@@ -37,7 +43,6 @@ public class User extends AbstractEntity implements UserDetails {
     @NotBlank(message = "An email address is required.")
     @Email(message = "Invalid email. Please try again.")
     private String email;
-
 
     private String confirmPassword;
 
@@ -59,7 +64,6 @@ public class User extends AbstractEntity implements UserDetails {
     }
 
     public User() {}
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -103,6 +107,10 @@ public class User extends AbstractEntity implements UserDetails {
     }
     public boolean getAccountNonLocked() {
         return accountNonLocked;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getLastname() {
@@ -156,5 +164,18 @@ public class User extends AbstractEntity implements UserDetails {
     @Override
     public String toString() {
         return username;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return id == user.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
