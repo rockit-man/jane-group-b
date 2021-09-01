@@ -38,16 +38,26 @@ public class UserController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @GetMapping("/registration")
+    public String displayRegistration(Model model) {
+        model.addAttribute(new User());
+        return "/registration";
+    }
 
     @PostMapping(
             value = "/registration",
-            consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE, produces = {
-            MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE }
+            consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE
     )
     public void addUser(@RequestParam Map<String, String> body) {
-        User user = new User(); user.setUsername(body.get("username"));
+        User user = new User();
+        user.setUsername(body.get("username"));
         user.setPassword(passwordEncoder.encode(body.get("password")));
-        user.setAccountNonLocked(true); userDetailsManager.createUser(user);
+        user.setAccountNonLocked(true);
+        user.setFirstname(body.get("firstName"));
+        user.setLastname(body.get("lastName"));
+        user.setEmail(body.get("email"));
+        user.setOrg(false);
+        userDetailsManager.createUser(user);
     }
     private String getErrorMessage(HttpServletRequest request, String key) {
         Exception exception = (Exception) request.getSession().getAttribute(key);

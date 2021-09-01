@@ -16,20 +16,21 @@ import java.util.Objects;
 @Table(name = "users")
 public class User implements UserDetails {
 
-    @Id
+//    @Id
     @GeneratedValue
     private int id;
 
     private static final long serialVersionUID = 1L;
 
-//    @Id
+    @Id
     @NotBlank(message = "Username is required.")
     @Size(min = 4, max = 20, message = "Username must be 4-20 characters long.")
     private String username;
 
-    @NotBlank(message = "A password is required.")
-    @Size(min = 4, max = 20, message = "Passwords must be 4-20 characters long.")
-    private String password; @Column(name = "account_non_locked")
+
+    private String password;
+
+    @Column(name = "account_non_locked")
     private boolean accountNonLocked;
 
     @NotBlank(message = "Last name is required.")
