@@ -1,65 +1,60 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:border-top="http://www.w3.org/1999/xhtml">
 <head th:replace="fragments :: head">
-    <nav th:replace="fragments :: navbar"></nav>
-<!--    &lt;!&ndash;    Adding Bootstrap styling&ndash;&gt;-->
-<!--    <meta charset="UTF-8">-->
-<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
-<!--    <link rel="stylesheet" href="css/bootstrap-grid.css">-->
     <title>Register your account</title>
+</head>
+<body class="text-center">
+    <nav th:replace="fragments :: navbar"></nav>
+    <div>
+        <h2>Sign up here!</h2>
+    </div>
+        <br>
+    <!-- Register Form-->
+    <form>
+        <div>
+            <label class="d-flex">First Name</label>
+            <input type="text" aria-label="First Name" class="form-control">
+        </div>
+        <div>
+            <label class="d-flex">Last Name</label>
+            <input type="text" aria-label="Last Name" class="form-control">
+        </div>
+        <div class="form-group">
+            <label class="d-flex">Username or Organization Name</label>
+            <input type="text" name="userName" class="form-control validate">
+        </div>
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="organizationBoolean">
+                <label class="form-check-label" for="organizationBoolean">Are you registering as an Organization?</label>
+            </div>
+        </div>
+        <div>
+            <label for="email" class="d-flex">Email</label>
+            <input type="email" id="email" name="email" class="form-control">
+        </div>
+        <div>
+            <label for="password" class="d-flex">Password</label>
+            <input type="password" id="password" name="password" class="form-control validate">
+        </div>
+        <div>
+            <label for="password2" class="d-flex">Confirm password</label>
+            <input type="password" id="password2" name="password2" class="form-control">
+        </div>
+        <br>
+        <div>
+            <button class="btn btn-lg btn-primary mb-2" type="submit">Submit</button>
+        </div>
+    </form>
     <style>
+        body {
+            padding-top: 100px;
+            }
         div {
-            width: 300px;
+            width: 400px;
             margin: auto;
             }
     </style>
-</head>
-<body>
-    <br>
-    <br>
-    <div class="text-center">
-        <h1 class="my-5">Create Account</h1>
-    </div>
-    <!-- Register Form-->
-    <div class="md-form">
-        <label class="d-flex">First Name</label>
-        <input type="text" aria-label="First Name" class ="form-control">
-    </div>
-    <div class="md-form">
-        <label class="d-flex">Last Name</label>
-        <input type="text" aria-label="Last Name" class ="form-control">
-    </div>
-    <div class="md-form">
-        <label class="d-flex">Username or Organization Name</label>
-        <input type="text" name="userName" class="form-control validate">
-    </div>
-    <div class="form-check">
-        <!-- here I believe we can call the id for our boolean class -->
-        <input class="form-check-input" type="checkbox" value="" id="organizationBoolean">
-        <label class="form-check-label">Are you registering as an Organization?</label>
-    </div>
-    <div class="form-check">
-        <label for="email" class="d-flex">Email</label>
-        <input type="email" id="email" name="email" class="form-control">
-    </div>
-    <div class="md-form">
-        <label for="password" class="d-flex">Password</label>
-        <input type="password" id="password" name="password" class="form-control validate">
-    </div>
-    <div class="md-form">
-        <label for="password2" class="d-flex">Confirm password</label>
-        <input type="password" id="password2" name="password2" class="form-control">
-    </div>
-    <br>
-    <!--<div class="d-flex justify-content-end">-->
-    <!--    &lt;!&ndash; Placeholder for now to hold the format together &ndash;&gt;-->
-    <!--    <a class="rotate-btn text-primary" data-card="my-card" tabIndex="-3">back to login</a>-->
-    <!--</div>-->
-    <div class="text-center">
-        <button type="submit" class="btn primary-color white-text btn-lg">Submit</button>
-    </div>
-    </form>
     <!-- This is the default script provided by Bootstrap for validation purposes - however, I need more research to figure out how to connect the two -->
     <script>
       $("#password").on("focusout", function () {

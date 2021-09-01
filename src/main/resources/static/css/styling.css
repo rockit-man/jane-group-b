@@ -1,5 +1,5 @@
 body {
-    background-color: #C9D8E1
+    background-color: #C9D8E1;
 }
 
 head {
@@ -18,6 +18,6 @@ head {
     }
 }
 
-nav {
-    background-color: blue;
+div.h1 {
+    color: red;
 }
