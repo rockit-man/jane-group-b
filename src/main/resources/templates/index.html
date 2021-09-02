@@ -2,23 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link th:href="@{/css/styling.css}" rel="stylesheet" />
-    <style>
-       .bd-placeholder-img {
-       font-size: 1.125rem;
-       text-anchor: middle;
-       -webkit-user-select: none;
-       -ms-user-select: none;
-       user-select: none;
-       }
-       @media(min-width: 750px) {
-       .bd-placeholder-img-lg {
-       font-size:3.5rem;
-       }
-       }
-   </style>
+    <link href="styles.css" rel="stylesheet" />
 </head>
-<body>
+<body class="background">
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
@@ -53,14 +39,27 @@
 <br>
 <div class="container" margin="50x">
 <h1>How Can I Help?</h1>
-<p>Wow, there's a ton of stuff happening in the world, and not all of them are funny cat videos. You may be
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm">
+                <img src="https://opthofpsychotherapy.com/wp-content/uploads/Counseling-Westwood-NJ-1184x789.jpg" alt="Volunteers with hands in center of a huddle" style="width: 350px; height: 250px;">
+            </div>
+            <div class="col-sm">
+                <img src="https://iseusa.org/wp-content/uploads/2017/04/shutterstock_428931997-e1543504561281.jpg" alt="Volunteers picking up trash together" style="width: 350px; height: 250px">
+            </div>
+        </div>
+    </div>
+  <div class="bg-gray-400">
+    <p class="">Wow, there's a ton of stuff happening in the world, and not all of them are funny cat videos. You may be
     wondering "how can I help make a difference in the world today?" That's a great question, and you've come to the
-right place!</p>
-<p>Our website will help you sort by causes that mean something to you, and then you can get in touch with the
+    right place!</p>
+
+    <p>Our website will help you sort by causes that mean something to you, and then you can get in touch with the
     organizations that work towards those goals. You can work with them to volunteer, donate items or money, or
     just keep in touch with what's going on.</p>
-<p>Click <a th:href="@{/user-home}">here</a> to sign in.</p>
-
+    <p>Click <a th:href="@{/user-home}">here</a> to sign in.</p>
+  </div>
 <div>
     Don't have an account?
     <a th:href="@{/registration}">Create an Account</a>
