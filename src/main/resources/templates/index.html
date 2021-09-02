@@ -1,24 +1,38 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:margin-top="http://www.w3.org/1999/xhtml">
 <head th:replace="fragments :: head">
     <title>Home</title>
 </head>
-<body>
+<header>
     <nav th:replace="fragments :: navbar"></nav>
+        <div class="p-5 text-center bg-image" style="background-image: url('https://www.biography.com/.image/c_limit%2Ccs_srgb%2Cfl_progressive%2Ch_2000%2Cq_auto:good%2Cw_2000/MTY0MjcxODQzNzk1MDg1MjU5/505322_fred_francois_pool_10_rc1526492878.jpg');
+                    height: 400px;">
+            <div class="mask">
+                <div class="d-flex justify-content-center align-items-center h-100">
+                    <div class="text-white">
+                        <h1 class="mb-3">Are you a helpr?</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+</header>
+<body>
     <div class="container" margin="50x">
-        <h1>How Can You Help?</h1><br>
-        <p>Fred Rogers, aka Mr. Rodgers, the unofficial official saint of children's programming, would say that in
-            times of crisis, always look for the helpers. With all that's going on in the world today, you may feel
-            compelled come to the aid of others, no matter if it's around the corner or around the world. Whether
-            it's committing random acts of kindness or raising funds for noble causes, donating your time, energy or
-            money, you want to do your part to help heal our planet. That's where we come in.</p>
+<!--        <h1 style="text-align:center">Are you a helpr?</h1><br>-->
+        <p style="margin-top:40px">Fred Rogers, aka Mr. Rodgers, the undisputable unofficial official saint of
+            children's programming, would say that in times of crisis, always look for the helpers. With all that's
+            going on in the world today, you may feel compelled to come to the aid of others, no matter if it's
+            around the corner or around the world.
+        <p>Whether it's committing random acts of kindness or raising funds for noble causes, donating your time, energy
+            or money, you want to do your part to help heal our planet. That's where we come in.</p>
         <p>If you are hoping to get involved and make a difference in someone's life today, please join our volunteer
-            portal and connect with others who want to help, just like you. Our website will help you find or discover
-            causes that you may be passionate about and connect you with other like-minded helpers and organizations so
-            that you can be a part of the tremendous change that we together are making possible. Sign up today and get
-            plugged in. Be sure to browse our registry of organizations, causes, and individual helpers to see where
-            and how you can get involved. Mr. Rodgers looked for the helpers, and so are we. Join us today and let us
-            know how you can help!</p>
+            portal and connect with others who want to help. Our website will assist you in creating and finding causes
+            to support while also connecting you with other like-minded helpers and organizations.
+        <p>By joining helpr, you can be a part of the tremendous change that we together are making possible through our
+            volunteer portal. Sign up today and get plugged in! Be sure to browse our registry of organizations, causes,
+            and individual helpers to see where and how you can get involved. Mr. Rodgers looked for the helpers, and so
+            are we. Join us today and let us know how you can help!</p>
 
         <p>Click <a th:href="@{/user-home}">here</a> to sign in!</p>
         <div>
@@ -28,11 +42,15 @@
     </div>
     <style>
         body {
-            padding-top: 100px;
+<!--            padding-top: 125px;-->
             margin: auto;
             }
-        div {
-            width: 400px;
+        div.container {
+            width: 800px;
+            }
+        h1 {
+            padding-bottom: 50px;
+            }
     </style>
 </body>
 </html>
