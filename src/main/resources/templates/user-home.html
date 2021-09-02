@@ -40,9 +40,30 @@
 <br>
 <br>
 <br>
-<h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
-<p> This is your user landing page. You'll be able to view your profile here, and make changes. For now, your only
-    option is to...</p>
+<h1 th:inline="text">[[${#httpServletRequest.remoteUser}]]'s Profile</h1>
+<p> Welcome to your profile.</p>
+
+<form action="/registration" method="post">
+    <div class="container">
+        <h1>Register</h1>
+        <p>Please fill in this form to create an account.</p>
+        <hr>
+
+        <label for="username">
+            <b>Username</b>
+        </label>
+        <input type="text" placeholder="Enter Username" name="username" id="username" required>
+
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" id="password" required>
+
+        <button type="submit" class="registerbtn">Register</button>
+    </div>
+
+</form>
+<div class="container">
+    <a th:href="@{/edit-profile}" class="btn btn-primary mt-5">Edit Profile</a>
+</div>
 <form th:action="@{/logout}" method="post">
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Out</button>
 </form>
