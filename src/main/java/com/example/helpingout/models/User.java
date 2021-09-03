@@ -16,17 +16,16 @@ import java.util.Objects;
 @Table(name = "users")
 public class User implements UserDetails {
 
-//    @Id
+     @Id
     @GeneratedValue
     private int id;
 
     private static final long serialVersionUID = 1L;
 
-    @Id
+//    @Id
     @NotBlank(message = "Username is required.")
     @Size(min = 4, max = 20, message = "Username must be 4-20 characters long.")
     private String username;
-
 
     private String password;
 
@@ -45,21 +44,18 @@ public class User implements UserDetails {
     @Email(message = "Invalid email. Please try again.")
     private String email;
 
-    private String confirmPassword;
-
     private Boolean isOrg;
 
     @ManyToMany
     private final List<Tag> tags = new ArrayList<>();
 
     public User(String username, String lastname, String firstname, String email, String password,
-                String confirmPassword, Boolean isOrg, boolean accountNonLocked) {
+                Boolean isOrg, boolean accountNonLocked) {
         this.username = username;
         this.lastname = lastname;
         this.firstname = firstname;
         this.email = email;
         this.password = password;
-        this.confirmPassword = confirmPassword;
         this.isOrg = isOrg;
         this.accountNonLocked = accountNonLocked;
     }
@@ -136,14 +132,6 @@ public class User implements UserDetails {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
-
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
     }
 
     public Boolean getOrg() {
