@@ -59,6 +59,7 @@ public class UserController {
         user.setOrg(false);
         userDetailsManager.createUser(user);
     }
+
     private String getErrorMessage(HttpServletRequest request, String key) {
         Exception exception = (Exception) request.getSession().getAttribute(key);
         String error = "";
@@ -71,6 +72,7 @@ public class UserController {
         }
         return error;
     }
+
 
 //    @GetMapping("add-tag")
 //    public String displayAddTagForm(@RequestParam Integer userId, Model model){
