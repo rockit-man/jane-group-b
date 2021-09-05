@@ -3,12 +3,12 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head th:fragment="head">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link th:href="@{/css/styling.css}" rel="stylesheet"/>
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link th:href="@{/css/styling.css}" rel="stylesheet" />
 </head>
 <body>
-<nav th:fragment="navbar" class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
-    <a class="navbar-brand" href="#">Navbar</a>
+<nav th:fragment="navbar" class="navbar navbar-expand-md navbar-dark bg-info fixed-top">
+    <a class="navbar-brand" href="#">helpr</a>
     <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
             data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -24,6 +24,11 @@
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="#" th:href="@{/user-home}">
+                    Dashboard
+                </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#" th:href="@{/login}">
                     Sign In
                 </a>
             </li>
