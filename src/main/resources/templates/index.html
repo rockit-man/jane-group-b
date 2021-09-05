@@ -6,20 +6,8 @@
 </head>
 <body class="bg-light" style="margin-bottom: 80px;">
     <nav th:replace="fragments :: navbar"></nav>
-    <div class="text-center bg-image">
-        <img class="img-fluid"
-             src="https://www.biography.com/.image/c_limit%2Ccs_srgb%2Cfl_progressive%2Ch_2000%2Cq_auto:good%2Cw_2000/MTY0MjcxODQzNzk1MDg1MjU5/505322_fred_francois_pool_10_rc1526492878.jpg"
-             style="filter: brightness(80%)">
-        <figcaption class="figure-caption">Photo: John Beale/Courtesy of Focus Features</figcaption>
-        <div class="d-flex justify-content-center align-items-center">
-            <p class="centered text-white font-italic"
-               style="font-size: 24px; font-weight: light; margin-top: 150px; text-shadow: 1px 2px 2px black;">
-                "All of us, at some time or other, need help. Whether we're giving or receiving help, each one of us has
-                something valuable to bring to this world. That's one of the things that connects us as neighbors--in our
-                own way, each one of us is a giver and a receiver."<br>-- Fred Rogers --</p>
-        </div>
-    </div>
-    <div class="container">
+    <figcaption class="figure-caption" style="text-align: center">Photo: John Beale/Courtesy of Focus Features</figcaption>
+    <div class="text-container">
         <h1 style="text-align: center; margin-top: 30px; font-weight: light;">Calling all helprs</h1><br>
         <p class="text-justify lead" style="margin-top: 50px;">Fred McFeely Rogers, aka Mr. Rodgers, the undisputable
             unofficial official saint of children's programming, would say that in times of crisis, always look for the
@@ -44,7 +32,7 @@
         </div>
     </div>
     <style>
-        .container {
+        .text-container {
             position: relative;
             text-align: center;
             padding-top: 50px;
