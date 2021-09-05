@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
+    <head th:replace="fragments :: head">
+        <nav th:replace="fragments :: navbar"></nav>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 <!--    &lt;!&ndash;    Adding Bootstrap styling&ndash;&gt;-->
@@ -8,47 +11,16 @@
 <!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
 <!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
 <!--    <link rel="stylesheet" href="css/bootstrap-grid.css">-->
-    <title>Register your account</title>
+    <title>Create your account</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
-            data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false"
-            aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="navbar-collapse collapse" id="navbarsExampleDefault" style>
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#" th:href="@{/index}">
-                    Home
-                </a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#" th:href="@{/user-home}">
-                    Sign In
-                </a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#" th:href="@{/registration}">
-                    Create Account
-                    <span class="sr-only">(current)</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-</nav>
 <br>
-
 <h1 class="my-5">Create Account</h1>
-
 <form action="/registration" method="post">
     <div class="container">
         <h1>Register</h1>
         <p>Please fill in this form to create an account.</p>
         <hr>
-
         <label for="username"><b>Username</b></label>
         <input type="text" placeholder="Enter Username" name="username" id="username" required>
 
@@ -69,7 +41,6 @@
 
         <button type="submit" class="registerbtn">Register</button>
     </div>
-
 </form>
 </body>
 </html>
