@@ -35,6 +35,7 @@ public class UserController {
 
     @Autowired
     private SecurityUserDetailsService userDetailsManager;
+
     @Autowired
     private PasswordEncoder passwordEncoder;
 
