@@ -3,6 +3,7 @@ package com.example.helpingout.controllers;
 import com.example.helpingout.models.Tag;
 import com.example.helpingout.models.User;
 import com.example.helpingout.models.dto.UserTagDTO;
+import com.example.helpingout.repositories.AuthorityRepository;
 import com.example.helpingout.repositories.TagRepository;
 import com.example.helpingout.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,11 @@ public class UserController {
     private TagRepository tagRepository;
 
     @Autowired
+    private AuthorityRepository authorityRepository;
+
+    @Autowired
     private SecurityUserDetailsService userDetailsManager;
+
     @Autowired
     private PasswordEncoder passwordEncoder;
 
@@ -57,12 +62,15 @@ public class UserController {
         user.setLastname(body.get("lastName"));
         user.setEmail(body.get("email"));
         Boolean org;
-        if (body.get("isOrg").equals("Yes")) {
+        if (body.get("isOrg").equalsIgnoreCase("yes")) {
                 user.setOrg(true);
-            } else if (body.get("isOrg").equals("No")) {
+                user.setAuthority(1);
+            } else if (body.get("isOrg").equalsIgnoreCase("no")) {
                 user.setOrg(false);
+                user.setAuthority(2);
             } else {
                 user.setOrg(false);
+                user.setAuthority(2);
             }
         userDetailsManager.createUser(user);
     }

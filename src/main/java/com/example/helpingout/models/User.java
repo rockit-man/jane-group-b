@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -16,13 +17,12 @@ import java.util.Objects;
 @Table(name = "users")
 public class User implements UserDetails {
 
-     @Id
+    @Id
     @GeneratedValue
     private int id;
 
     private static final long serialVersionUID = 1L;
 
-//    @Id
     @NotBlank(message = "Username is required.")
     @Size(min = 4, max = 20, message = "Username must be 4-20 characters long.")
     private String username;
@@ -46,11 +46,15 @@ public class User implements UserDetails {
 
     private Boolean isOrg;
 
+    @ManyToOne
+    @NotNull
+    private Authority authority;
+
     @ManyToMany
     private final List<Tag> tags = new ArrayList<>();
 
     public User(String username, String lastname, String firstname, String email, String password,
-                Boolean isOrg, boolean accountNonLocked) {
+                Boolean isOrg, boolean accountNonLocked, Authority authority) {
         this.username = username;
         this.lastname = lastname;
         this.firstname = firstname;
@@ -58,6 +62,7 @@ public class User implements UserDetails {
         this.password = password;
         this.isOrg = isOrg;
         this.accountNonLocked = accountNonLocked;
+        this.authority = authority;
     }
 
     public User() {}
@@ -66,6 +71,7 @@ public class User implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(() -> "read");
     }
+
     @Override
     public String getUsername() {
         return username;
@@ -88,6 +94,7 @@ public class User implements UserDetails {
     public boolean isAccountNonExpired() {
         return true;
     }
+
     @Override
     public boolean isAccountNonLocked() {
         return accountNonLocked;
@@ -102,6 +109,7 @@ public class User implements UserDetails {
     public void setAccountNonLocked(Boolean accountNonLocked) {
         this.accountNonLocked = accountNonLocked;
     }
+
     public boolean getAccountNonLocked() {
         return accountNonLocked;
     }
@@ -142,6 +150,14 @@ public class User implements UserDetails {
         isOrg = org;
     }
 
+    public Authority getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(Authority authority) {
+        this.authority = authority;
+    }
+
     public List<Tag> getTags() {
         return tags;
     }
@@ -149,7 +165,6 @@ public class User implements UserDetails {
     public void addTag(Tag tag) {
         this.tags.add(tag);
     }
-
 
     @Override
     public String toString() {

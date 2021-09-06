@@ -6,7 +6,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "authorities")
-public class Authorities {
+public class Authority {
 
     @Id
     @GeneratedValue
@@ -14,11 +14,11 @@ public class Authorities {
 
     private String authority;
 
-    public Authorities(String authority) {
+    public Authority (String authority) {
         this.authority = authority;
     }
 
-    public Authorities() {}
+    public Authority () {}
 
     public int getId() {
         return id;
@@ -28,7 +28,7 @@ public class Authorities {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Authorities that = (Authorities) o;
+        Authority that = (Authority) o;
         return id == that.id;
     }
 

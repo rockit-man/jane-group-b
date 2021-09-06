@@ -1,9 +1,10 @@
 package com.example.helpingout.repositories;
 
-
-import com.example.helpingout.models.Authorities;
+import com.example.helpingout.models.Authority;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-public interface AuthorityRepository extends CrudRepository<Authorities, Integer> {
+@Repository
+public interface AuthorityRepository extends CrudRepository<Authority, Integer> {
 
 }
