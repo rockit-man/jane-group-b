@@ -59,10 +59,13 @@ public class UserController {
 //        Boolean org;
         if (body.get("isOrg").equalsIgnoreCase("yes")) {
             user.setOrg(true);
+            // if needing to set role, this would be the place for "admin" or equivalent. Unsure of needed format.
             } else if (body.get("isOrg").equalsIgnoreCase("no")) {
             user.setOrg(false);
+            // if needing to set role, this would be the place for "user" or equivalent
             } else {
             user.setOrg(false);
+            //Same as line 65 above.
             }
 
         userDetailsManager.createUser(user);
