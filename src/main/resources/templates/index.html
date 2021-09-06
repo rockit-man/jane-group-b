@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
-      xmlns:margin-top="http://www.w3.org/1999/xhtml" xmlns:text-shadow="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head th:replace="fragments :: head">
     <title>Home</title>
 </head>
 <body class="bg-light" style="margin-bottom: 80px;">
     <nav th:replace="fragments :: navbar"></nav>
+    <div class="container" style="width: 975px; margin-top: 60px;">
+        <img src="https://miro.medium.com/max/1400/1*P-KfTcC97Ww07GTpPK5tng.png" alt="" class="img-fluid">
+    <div/>
     <figcaption class="figure-caption" style="text-align: center">Photo: John Beale/Courtesy of Focus Features</figcaption>
-    <div class="text-container">
-        <h1 style="text-align: center; margin-top: 30px; font-weight: light;">Calling all helprs</h1><br>
+    <div class="container">
+        <h1 style="text-align: center; margin-top: 30px; font-weight: light;">Calling all helprs!</h1><br>
         <p class="text-justify lead" style="margin-top: 50px;">Fred McFeely Rogers, aka Mr. Rodgers, the undisputable
             unofficial official saint of children's programming, would say that in times of crisis, always look for the
             helpers. With all that's going on in the world today, you may feel compelled to come to the aid of others, no
@@ -32,22 +34,13 @@
         </div>
     </div>
     <style>
-        .text-container {
+        .container {
             position: relative;
             text-align: center;
             padding-top: 50px;
             margin: auto;
             width: 550px;
             }
-
-        /* Centered text */
-
-        .centered {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          }
     </style>
 </body>
 </html>
