@@ -56,14 +56,15 @@ public class UserController {
         user.setFirstname(body.get("firstName"));
         user.setLastname(body.get("lastName"));
         user.setEmail(body.get("email"));
-        Boolean org;
-        if (body.get("isOrg").equals("Yes")) {
-                user.setOrg(true);
-            } else if (body.get("isOrg").equals("No")) {
-                user.setOrg(false);
+//        Boolean org;
+        if (body.get("isOrg").equalsIgnoreCase("yes")) {
+            user.setOrg(true);
+            } else if (body.get("isOrg").equalsIgnoreCase("no")) {
+            user.setOrg(false);
             } else {
-                user.setOrg(false);
+            user.setOrg(false);
             }
+
         userDetailsManager.createUser(user);
     }
 
