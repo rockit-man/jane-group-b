@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+    <title>Add a Cause</title>
+</head>
+<body>
+    <nav th:replace="fragments :: navbar"></nav>
+    <div class="card">
+        <div class="card-body" style="centered">
+            <h1 style="text-align: center; margin-top: 30px; font-weight: light;">Add a Cause</h1>
+            <p class="text-justify lead" style="margin-bottom: 40px;">Help us keep track of the type of help needed by adding
+                causes to our registry.</p>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control">
+            </div>
+            <button type="button" class="btn btn-secondary btn-lg" th:ref="@{redirect:}">Go back</button>
+            <button type="button" class="btn btn-primary btn-lg" th:ref="@{redirect:}">Submit</button>
+        </div>
+    </div>
+</body>
+</html>
