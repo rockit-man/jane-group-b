@@ -38,12 +38,14 @@ public class UserController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    // This method displays the registration page to create a new account.
     @GetMapping("/registration")
     public String displayRegistration(Model model) {
         model.addAttribute(new User());
         return "/registration";
     }
 
+    // This method executes the registration page, creating a new account.
     @PostMapping(
             value = "/registration",
             consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE

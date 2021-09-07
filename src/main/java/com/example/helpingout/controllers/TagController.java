@@ -22,6 +22,7 @@ public class TagController {
     @Autowired
     private TagRepository tagRepository;
 
+    // This method shows all tags/causes.
     @GetMapping
     public String displayTags(Model model) {
         model.addAttribute("title", "All Tags");
@@ -30,6 +31,7 @@ public class TagController {
         return "tags/index";
     }
 
+    // This method displays the form for creating a new tag/cause.
     @GetMapping("create")
     public String displayCreateTagForm(Model model) {
         model.addAttribute("title", "Create Tag");
@@ -38,6 +40,7 @@ public class TagController {
         return "tags/create";
     }
 
+    // This method processes the form, creating the new tag/cause.
     @PostMapping("create")
     public String processCreateTagForm(@ModelAttribute @Valid Tag tag,
                                        Errors errors, Model model) {
