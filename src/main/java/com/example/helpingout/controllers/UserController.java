@@ -116,4 +116,24 @@ public class UserController {
 //        return "redirect:user-home";
 //    }
 
+    @GetMapping("users")
+    public String displayUsers(@RequestParam(required = false) Integer tagId, Model model) {
+
+        if (tagId == null) {
+            model.addAttribute("title", "All Users");
+            model.addAttribute("users", userRepository.findAll());
+        } else {
+            Optional<Tag> result = tagRepository.findById(tagId);
+            if (result.isEmpty()) {
+                model.addAttribute("title", "Invalid Tag ID: " + tagId);
+            } else {
+                Tag tag = result.get();
+                model.addAttribute("title", "Users with tag: " + tag.getName());
+                model.addAttribute("users", tag.getUsers());
+            }
+        }
+
+        return "users/index";
+    }
+
 }
