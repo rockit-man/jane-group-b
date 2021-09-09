@@ -136,4 +136,21 @@ public class UserController {
         return "users/index";
     }
 
+    @GetMapping("users/detail")
+    public String displayUserDetails(@RequestParam Integer userId, Model model) {
+
+        Optional<User> result = userRepository.findById(userId);
+
+        if (result.isEmpty()) {
+            model.addAttribute("title", "Invalid User ID: " + userId);
+        } else {
+            User user = result.get();
+            model.addAttribute("title", user.getUsername() + " Details");
+            model.addAttribute("user", user);
+//            model.addAttribute("tags", user.getTags());
+        }
+
+        return "users/detail";
+    }
+
 }
