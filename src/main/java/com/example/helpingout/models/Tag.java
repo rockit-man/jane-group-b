@@ -8,9 +8,14 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
-public class Tag extends AbstractEntity{
+public class Tag {
+
+    @Id
+    @GeneratedValue
+    private int id;
 
     @Size(min = 2, max = 24, message = "Tags must be between 2-24 characters.")
     @NotBlank
@@ -25,6 +30,10 @@ public class Tag extends AbstractEntity{
 
     public Tag() {}
 
+    public int getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }
@@ -37,5 +46,18 @@ public class Tag extends AbstractEntity{
 
     public List<User> getUsers() {
         return users;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Tag tag = (Tag) o;
+        return id == tag.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
