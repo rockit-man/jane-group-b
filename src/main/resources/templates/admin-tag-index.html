@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Helpr Admin</title>
+</head>
+<body>
+
+<h1>All Causes by Tag</h1>
+
+<!--<table class="table">-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <th>Cause</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tr th:each="tag : ${tags}">-->
+<!--        <td th:text="${tag.displayName}"></td>-->
+<!--        <td>-->
+<!--            <a th:href="@{/deleteTag(tagId=${tag.id})}" class="btn btn-danger ml-2">Delete</a>-->
+<!--        </td>-->
+<!--    </tr>-->
+<!--</table>-->
+
+<form method="post">
+    <div class="form-group">
+        <label>Add Tag
+            <input th:field="${tag.name}" class="form-control">
+        </label>
+        <span th:errors="${tag.name}" class="error"></span>
+    </div>
+    <input type="submit" value="Create" class="btn btn-primary">
+</form>
+
+</body>
+</html>
