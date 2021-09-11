@@ -50,9 +50,22 @@ public class TagController {
         return "redirect:";
     }
 
-    @GetMapping("/deleteTag")
-    public String deleteTag(@RequestParam Integer tagId) {
-        tagRepository.deleteById(tagId);
-        return "redirect:admin/tags/index";
+    @GetMapping("delete")
+    public String displayDeleteTagForm(Model model) {
+        model.addAttribute("title", "Delete Tags");
+        model.addAttribute("events", tagRepository.findAll());
+        return "tags/delete";
+    }
+
+    @PostMapping("delete")
+    public String processDeleteTagForm(@RequestParam(required = false) int[] tagIds) {
+
+        if (tagIds != null) {
+            for (int id : tagIds) {
+                tagRepository.deleteById(id);
+            }
+        }
+
+        return "redirect:";
     }
 }
