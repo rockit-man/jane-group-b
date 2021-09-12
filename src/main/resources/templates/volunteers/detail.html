@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+<h1>Volunteer Details</h1>
+
+<header th:replace="fragments :: admin-header"></header>
+
+<table>
+    <tr>
+        <th>Volunteer ID</th>
+        <td th:text="${volunteer.id}"></td>
+    </tr>
+    <tr>
+        <th>Username</th>
+        <td th:text="${volunteer.username}"></td>
+    </tr>
+    <tr>
+        <th>First Name</th>
+        <td th:text="${volunteer.firstname}"></td>
+    </tr>
+    <tr>
+        <th>Last Name</th>
+        <td th:text="${volunteer.lastname}"></td>
+    </tr>
+    <tr>
+        <th>Email</th>
+        <td th:text="${volunteer.email}"></td>
+    </tr>
+    <tr>
+        <th>Tags</th>
+        <td>
+            <span th:each="tag : ${tags}" th:text="${tag.displayName} + ' '"></span>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

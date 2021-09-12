@@ -9,5 +9,16 @@
 
 <header th:replace="fragments :: admin-header"></header>
 
+<table>
+    <thead>
+    <tr>
+        <th>Volunteers</th>
+    </tr>
+    </thead>
+    <tr th:each="volunteer : ${volunteers}">
+        <td th:text="${volunteer.username}"></td>
+    </tr>
+</table>
+
 </body>
 </html>

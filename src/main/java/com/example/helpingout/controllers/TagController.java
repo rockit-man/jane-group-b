@@ -53,7 +53,7 @@ public class TagController {
     @GetMapping("delete")
     public String displayDeleteTagForm(Model model) {
         model.addAttribute("title", "Delete Tags");
-        model.addAttribute("events", tagRepository.findAll());
+        model.addAttribute("tags", tagRepository.findAll());
         return "tags/delete";
     }
 

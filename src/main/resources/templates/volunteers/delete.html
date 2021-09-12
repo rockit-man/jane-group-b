@@ -9,5 +9,17 @@
 
 <header th:replace="fragments :: admin-header"></header>
 
+<form method="post">
+    <th:block th:each="volunteer : ${volunteers}">
+        <div class="form-group">
+            <label>
+                <span th:text="${volunteer.username}"></span>
+                <input type="checkbox" name="volunteerIds" th:value="${volunteer.id}" class="form-control">
+            </label>
+        </div>
+    </th:block>
+    <input type="submit" value="Delete" class="btn btn-danger">
+</form>
+
 </body>
 </html>
