@@ -86,7 +86,6 @@ public class VolunteerController {
         return "volunteers/detail";
     }
 
-    // responds to /volunteers/add-tag?eventId=13
     @GetMapping("add-tag")
     public String displayAddTagForm(@RequestParam Integer volunteerId, Model model){
         Optional<Volunteer> result = volunteerRepository.findById(volunteerId);
@@ -96,7 +95,7 @@ public class VolunteerController {
         VolunteerTagDTO volunteerTag = new VolunteerTagDTO();
         volunteerTag.setVolunteer(volunteer);
         model.addAttribute("volunteerTag", volunteerTag);
-        return "volunteers/add-tag.html";
+        return "volunteers/add-tag";
     }
 
     @PostMapping("add-tag")
@@ -111,7 +110,7 @@ public class VolunteerController {
                 volunteer.addTag(tag);
                 volunteerRepository.save(volunteer);
             }
-            return "redirect:detail?eventId=" + volunteer.getId();
+            return "redirect:detail?volunteerId=" + volunteer.getId();
         }
 
         return "redirect:add-tag";

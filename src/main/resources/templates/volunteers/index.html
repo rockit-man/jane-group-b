@@ -15,7 +15,8 @@
     </tr>
     </thead>
     <tr th:each="volunteer : ${volunteers}">
-        <td th:text="${volunteer.username}"></td>
+        <td><a th:href="'/volunteers/detail?volunteerId=' + ${volunteer.id}" th:text="${volunteer.username}"></a></td>
+
     </tr>
 </table>
 
