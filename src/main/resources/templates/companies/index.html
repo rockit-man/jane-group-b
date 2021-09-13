@@ -6,5 +6,19 @@
 </head>
 <body>
 
+<header th:replace="fragments :: admin-header"></header>
+
+<table>
+    <thead>
+    <tr>
+        <th>Companies</th>
+    </tr>
+    </thead>
+    <tr th:each="company : ${companies}">
+        <td><a th:href="'/companies/detail?companyId=' + ${company.id}" th:text="${company.name}"></a></td>
+
+    </tr>
+</table>
+
 </body>
 </html>
