@@ -16,7 +16,7 @@ import java.util.Objects;
 @Table(name = "users")
 public class User implements UserDetails {
 
-     @Id
+    @Id
     @GeneratedValue
     private int id;
 

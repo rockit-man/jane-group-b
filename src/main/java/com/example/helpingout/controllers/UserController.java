@@ -38,12 +38,14 @@ public class UserController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    // This method displays the registration page to create a new account.
     @GetMapping("/registration")
     public String displayRegistration(Model model) {
         model.addAttribute(new User());
         return "/registration";
     }
 
+    // This method executes the registration page, creating a new account.
     @PostMapping(
             value = "/registration",
             consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE
@@ -56,14 +58,18 @@ public class UserController {
         user.setFirstname(body.get("firstName"));
         user.setLastname(body.get("lastName"));
         user.setEmail(body.get("email"));
-        Boolean org;
-        if (body.get("isOrg").equals("Yes")) {
-                user.setOrg(true);
-            } else if (body.get("isOrg").equals("No")) {
-                user.setOrg(false);
+//        Boolean org;
+        if (body.get("isOrg").equalsIgnoreCase("yes")) {
+            user.setOrg(true);
+            // if needing to set role, this would be the place for "admin" or equivalent. Unsure of needed format.
+            } else if (body.get("isOrg").equalsIgnoreCase("no")) {
+            user.setOrg(false);
+            // if needing to set role, this would be the place for "user" or equivalent
             } else {
-                user.setOrg(false);
+            user.setOrg(false);
+            //Same as line 65 above.
             }
+
         userDetailsManager.createUser(user);
     }
 
@@ -109,5 +115,42 @@ public class UserController {
 //        }
 //        return "redirect:user-home";
 //    }
+
+    @GetMapping("users")
+    public String displayUsers(@RequestParam(required = false) Integer tagId, Model model) {
+
+        if (tagId == null) {
+            model.addAttribute("title", "All Users");
+            model.addAttribute("users", userRepository.findAll());
+        } else {
+            Optional<Tag> result = tagRepository.findById(tagId);
+            if (result.isEmpty()) {
+                model.addAttribute("title", "Invalid Tag ID: " + tagId);
+            } else {
+                Tag tag = result.get();
+                model.addAttribute("title", "Users with tag: " + tag.getName());
+                model.addAttribute("users", tag.getUsers());
+            }
+        }
+
+        return "users/index";
+    }
+
+    @GetMapping("users/detail")
+    public String displayUserDetails(@RequestParam Integer userId, Model model) {
+
+        Optional<User> result = userRepository.findById(userId);
+
+        if (result.isEmpty()) {
+            model.addAttribute("title", "Invalid User ID: " + userId);
+        } else {
+            User user = result.get();
+            model.addAttribute("title", user.getUsername() + " Details");
+            model.addAttribute("user", user);
+//            model.addAttribute("tags", user.getTags());
+        }
+
+        return "users/detail";
+    }
 
 }
