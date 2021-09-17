@@ -5,6 +5,25 @@
     <title></title>
 </head>
 <body>
-<h1>List Volunteers by Cause</h1>
-</body>
+<h1>List Volunteers By Cause</h1>
+
+<table class="centeredTable">
+    <tr>
+        <th>All</th>
+        <th>Cause</th>
+    </tr>
+
+    <tr>
+        <td>
+            <li>
+                <a th:href="@{/list-volunteers/results(column='All',value='View All')}">View All</a>
+            </li>
+        </td>
+        <td>
+            <li th:each="volunteer : ${volunteers}">
+                <a th:href="@{/list-volunteers/results(value=${volunteer.username})}" th:text="${volunteer.username}"></a>
+            </li>
+        </td>
+    </tr>
+</table></body>
 </html>

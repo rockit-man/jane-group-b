@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+<div class="volunteer-listing">
+    <p th:text="${'ID: ' + volunteer.id}"></p>
+    <p th:text="${'Username: ' + volunteer.username}"></p>
+    <p>
+        Name: <a th:href="@{'/employers/view/' + ${job.employer.id}}" th:text="${job.employer.name}"></a>
+    </p>
+    <p> Causes:
+    <ul>
+        <li th:each="skill : ${job.skills}">
+            <a th:href="@{'/skills/view/' + ${skill.id}}" th:text="${skill.name}"></a>
+        </li>
+    </ul>
+    </p>
+</div>
+</body>
+</html>
