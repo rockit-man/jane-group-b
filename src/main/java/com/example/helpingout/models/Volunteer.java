@@ -35,7 +35,7 @@ public class Volunteer {
     private Boolean isOrg = false;
 
     @ManyToMany
-    private final List<Tag> tags = new ArrayList<>();
+    private List<Tag> tags = new ArrayList<>();
 
     public Volunteer(int id, String username, String lastname, String firstname, String email, Boolean isOrg) {
         this.id = id;
