@@ -11,16 +11,13 @@
 <div class="volunteer-listing">
     <p th:text="${'ID: ' + volunteer.id}"></p>
     <p th:text="${'Username: ' + volunteer.username}"></p>
-<!--    <p>-->
-<!--        Name: <a th:href="@{'/employers/view/' + ${job.employer.id}}" th:text="${job.employer.name}"></a>-->
-<!--    </p>-->
-<!--    <p> Causes:-->
-<!--    <ul>-->
-<!--        <li th:each="skill : ${job.skills}">-->
-<!--            <a th:href="@{'/skills/view/' + ${skill.id}}" th:text="${skill.name}"></a>-->
-<!--        </li>-->
-<!--    </ul>-->
-<!--    </p>-->
+    <p th:text="${'Email: ' + volunteer.email}"></p>
+
+        <p> Causes:
+    <ul th:each="tag : ${volunteer.tags}">
+        <li th:text="${tag.name}"></li>
+    </ul>
+    </p>
 </div>
 </body>
 </html>
