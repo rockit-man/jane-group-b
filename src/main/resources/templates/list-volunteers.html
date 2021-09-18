@@ -20,8 +20,10 @@
             </li>
         </td>
         <td>
-            <li th:each="volunteer : ${volunteers}">
-                <a th:href="@{/list-volunteers/results(value=${volunteer.username})}" th:text="${volunteer.username}"></a>
+            <li th:each="tag : ${tags}">
+<!--                <a th:href="@{/list-volunteers/results(value=${tag.name})}" th:text="${tag.name}"></a>-->
+                <a th:href="@{/list-volunteers/results(column=tags,value=${tag.name})}" th:text="${tag.name}"></a>
+
             </li>
         </td>
     </tr>
