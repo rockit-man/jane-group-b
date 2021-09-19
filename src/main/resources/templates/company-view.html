@@ -11,8 +11,9 @@
 <div class="company-listing">
     <p th:text="${'ID: ' + company.id}"></p>
     <p th:text="${'Company Name: ' + company.name}"></p>
-    <p th:text="${'Contact Email: ' + company.email}"></p>
-
+<!--    <p th:text="${'Contact Email: ' + company.email}"></p>-->
+    <p>Contact Email:</p>
+    <a th:href="${'mailto:' + company.email}" th:text="${company.email}"></a>
     <p> Causes:
     <ul th:each="tag : ${company.tags}">
         <li th:text="${tag.name}"></li>

@@ -20,7 +20,9 @@
                     <a th:href="@{'/list-volunteers/view/' + ${volunteer.id}}" th:text="${volunteer.id}"></a>
                 </p>
                 <p th:text="${'Name: ' + volunteer.username}"></p>
-                <p th:text="${'Email: ' + volunteer.email}"></p>
+<!--                <p th:text="${'Email: ' + volunteer.email}"></p>-->
+                <p>Email:</p>
+                <a th:href="${'mailto:' + volunteer.email}" th:text="${volunteer.email}"></a>
                 <p>
                     Causes:
                 <ul th:each="tag : ${volunteer.tags}">
