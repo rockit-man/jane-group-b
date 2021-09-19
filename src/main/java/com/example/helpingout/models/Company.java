@@ -27,7 +27,7 @@ public class Company {
     private Boolean isOrg = true;
 
     @ManyToMany
-    private final List<Tag> tags = new ArrayList<>();
+    private List<Tag> tags = new ArrayList<>();
 
     public Company(int id, String name, String email, Boolean isOrg) {
         this.id = id;
