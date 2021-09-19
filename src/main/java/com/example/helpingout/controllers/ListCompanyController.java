@@ -53,7 +53,7 @@ public class ListCompanyController {
         }
         model.addAttribute("companies", companies);
 
-        return "results";
+        return "company-results";
     }
 
     @RequestMapping(value = "company-view/{companyId}")
