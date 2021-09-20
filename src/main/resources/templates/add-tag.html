@@ -1,12 +1,43 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head>
-    <head th:replace="fragments :: head">
-        <nav th:replace="fragments :: navbar"></nav>
-    <meta charset="UTF-8"/>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments :: head">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="../../../../favicon.ico">
+
     <title>Add a Cause</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/editor.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="narrow-jumbotron.css" rel="stylesheet">
 </head>
-<body>
-<!--Do things here-->
+
+<body data-new-gr-c-s-check-loaded="14.1028.0" data-gr-ext-installed="" data-new-gr-c-s-loaded="14.1028.0">
+
+<nav th:replace="fragments :: navbar"></nav>
+
+<div class="container" style="margin-top: 60px;">
+    <div class="jumbotron" style="text-align: center;">
+        <h1 class="display-3" style="margin-bottom: 6px; line-height: 80px; text-align: center;">Select a Cause</h1>
+        <p class="lead"
+           style="text-align: center; font-weight: 300; width: 642px; position: static; margin-top: 6px; display: inline;">
+            Tell us how you can help. We'll help you get connected from there.</p>
+        <form style="">
+            <div class="form-group">
+                <input type="text" class="form-control"
+                       style="padding-top: 6px; margin-top: 30px; padding-bottom: 6px; margin-bottom: 30px;">
+            </div>
+        </form>
+        <button type="button" class="btn btn-secondary" style="height: 50px; text-align: center; margin-right: 14px;">
+            Go Back
+        </button>
+        <button type="button" class="btn btn-primary" style="height: 50px;">
+            Submit
+        </button>
+    </div>
+</div>
+
 </body>
+<grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration>
 </html>

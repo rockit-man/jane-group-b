@@ -40,5 +40,15 @@
         </ul>
     </div>
 </nav>
+<header th:fragment="volunteer-header">
+    <h1 th:text="${title}">Helpr Volunteer</h1>
+    <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="">Volunteer Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="">Edit Profile</a></li>
+        <li class="nav-item"><a class="nav-link" href="/tags">All Causes</a></li>
+        <li class="nav-item"><a class="nav-link" href="/companies">All Organizations</a></li>
+        <li class="nav-item"><a class="nav-link" href="/volunteers">All Volunteers</a></li>
+    </ul>
+</header>
 </body>
 </html>

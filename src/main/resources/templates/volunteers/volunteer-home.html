@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head th:replace="fragments :: head">
+    <nav th:replace="fragments :: navbar"></nav>
+    <!--    Adding Bootstrap styling-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="utf-8"/>
+    <title>Volunteer Dashboard</title>
+</head>
+<body>
+    <header th:replace="fragments :: volunteer-header"></header>
+    <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+    <p> This is your volunteer dashboard. You'll be able to view and update your profile here. Thanks for being a
+        helpr!</p>
+    <form th:action="@{/logout}" method="post">
+        <button class="btn btn-lg btn-primary" type="submit">Sign Out</button>
+    </form>
+</body>
+</html>
