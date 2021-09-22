@@ -113,6 +113,14 @@
 <!--        </div> &lt;!&ndash; end isOrg&ndash;&gt;-->
     </div>
     <div>
+        <label class="d-flex">Role</label>
+        <select th:field="${user.role}">
+            <option th:each="role : ${roles}"
+                    th:value="${role}"
+                    th:text="${role.displayName}"> </option>
+        </select>
+    </div> <!-- end role-->
+    <div>
         <label for="email" class="d-flex">Email</label>
         <input type="email"
                placeholder="jsmith123@gmail.com"

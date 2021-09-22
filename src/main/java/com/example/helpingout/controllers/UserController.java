@@ -1,5 +1,6 @@
 package com.example.helpingout.controllers;
 
+import com.example.helpingout.models.Role;
 import com.example.helpingout.models.Tag;
 import com.example.helpingout.models.User;
 import com.example.helpingout.models.dto.UserTagDTO;
@@ -41,31 +42,43 @@ public class UserController {
     @GetMapping("/registration")
     public String displayRegistration(Model model) {
         model.addAttribute(new User());
+        model.addAttribute("roles", Role.values());
         return "/registration";
     }
-
-    @PostMapping(
-            value = "/registration",
-            consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE
-    )
-    public void addUser(@RequestParam Map<String, String> body) {
-        User user = new User();
-        user.setUsername(body.get("username"));
-        user.setPassword(passwordEncoder.encode(body.get("password")));
-        user.setAccountNonLocked(true);
-        user.setFirstname(body.get("firstName"));
-        user.setLastname(body.get("lastName"));
-        user.setEmail(body.get("email"));
-        Boolean org;
-        if (body.get("isOrg").equals("Yes")) {
-                user.setOrg(true);
-            } else if (body.get("isOrg").equals("No")) {
-                user.setOrg(false);
-            } else {
-                user.setOrg(false);
-            }
-        userDetailsManager.createUser(user);
-    }
+@PostMapping(
+            value ="/registration",
+           consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+public String processRegistrationForm(@ModelAttribute @Valid User newUser, Errors errors, Model model) {
+        if(errors.hasErrors()) {
+            model.addAttribute("title", "Register Here");
+            return "/registration";
+        }
+        userDetailsManager.createUser(newUser);
+        return "redirect:";
+}
+//    @PostMapping(
+//            value = "/registration",
+//            consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE
+//    )
+//    public void addUser(@RequestParam Map<String, String> body) {
+//        User user = new User();
+//        user.setUsername(body.get("username"));
+//        user.setPassword(passwordEncoder.encode(body.get("password")));
+//        user.setAccountNonLocked(true);
+//        user.setFirstname(body.get("firstName"));
+//        user.setLastname(body.get("lastName"));
+//        user.setEmail(body.get("email"));
+//        Boolean org;
+//        if (body.get("isOrg").equals("Yes")) {
+//                user.setOrg(true);
+//            } else if (body.get("isOrg").equals("No")) {
+//                user.setOrg(false);
+//            } else {
+//                user.setOrg(false);
+//            }
+//        user.setRole(body.get("role"));
+//        userDetailsManager.createUser(user);
+//    }
 
     private String getErrorMessage(HttpServletRequest request, String key) {
         Exception exception = (Exception) request.getSession().getAttribute(key);

@@ -3,6 +3,7 @@ package com.example.helpingout.models;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import javax.management.relation.Role;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -13,7 +14,6 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "users")
 public class User implements UserDetails {
 
      @Id
@@ -46,11 +46,13 @@ public class User implements UserDetails {
 
     private Boolean isOrg;
 
+    private Role role;
+
     @ManyToMany
     private final List<Tag> tags = new ArrayList<>();
 
     public User(String username, String lastname, String firstname, String email, String password,
-                Boolean isOrg, boolean accountNonLocked) {
+                Boolean isOrg, boolean accountNonLocked, Role role) {
         this.username = username;
         this.lastname = lastname;
         this.firstname = firstname;
@@ -58,32 +60,32 @@ public class User implements UserDetails {
         this.password = password;
         this.isOrg = isOrg;
         this.accountNonLocked = accountNonLocked;
+        this.role = role;
     }
 
     public User() {}
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(() -> "read");
-    }
+
     @Override
     public String getUsername() {
         return username;
     }
-
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
     }
 
     @Override
     public String getPassword() {
         return password;
     }
-
     public void setPassword(String password) {
         this.password = password;
     }
-
     @Override
     public boolean isAccountNonExpired() {
         return true;
@@ -98,58 +100,47 @@ public class User implements UserDetails {
     @Override public boolean isEnabled() {
         return true;
     }
-
     public void setAccountNonLocked(Boolean accountNonLocked) {
         this.accountNonLocked = accountNonLocked;
     }
     public boolean getAccountNonLocked() {
         return accountNonLocked;
     }
-
     public int getId() {
         return id;
     }
-
     public String getLastname() {
         return lastname;
     }
-
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
-
     public String getFirstname() {
         return firstname;
     }
-
     public void setFirstname(String firstname) {
         this.firstname = firstname;
     }
-
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
-
     public Boolean getOrg() {
         return isOrg;
     }
-
     public void setOrg(Boolean org) {
         isOrg = org;
     }
-
     public List<Tag> getTags() {
         return tags;
     }
-
     public void addTag(Tag tag) {
         this.tags.add(tag);
     }
-
+    public Role getRole() { return role; }
+    public void setRole(Role role) { this.role = role; }
 
     @Override
     public String toString() {
