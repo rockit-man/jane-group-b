@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-<head>
-    <head th:replace="fragments :: head">
-        <nav th:replace="fragments :: navbar"></nav>
+<head th:replace="fragments :: head">
     <!--    Adding Bootstrap styling-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta charset="utf-8"/>
-    <title>How can I help you?</title>
+    <title>Home</title>
+</head>
 <body>
+<nav th:replace="fragments :: navbar"></nav>
 <br>
 <br>
 <br>
@@ -15,18 +15,13 @@
 <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
 <p> This is your user landing page. You'll be able to view your profile here, and make changes. For now, your only
     option is to...</p>
-
-<a class="nav-link" href="/list-volunteers">List Volunteers by Cause</a></a>
-
-<a class="nav-link" href="/list-companies">List Companies by Cause</a></a>
-
-<a class="nav-link" href="/admin">Admin Home</a></a>
-
-
-
+<form th:action="@{/volunteer-home}">
+    <button class="btn btn-lg btn-primary" type="submit">View My Dashboard</button>
+</form>
+<br>
+<p>Or you can also...</p>
 <form th:action="@{/logout}" method="post">
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Out</button>
+    <button class="btn btn-lg btn-primary" type="submit">Sign Out</button>
 </form>
 </body>
-</head>
 </html>
