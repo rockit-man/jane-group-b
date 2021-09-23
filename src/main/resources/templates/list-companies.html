@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+
+<a class="nav-link" href="/user-home">Back to User Home</a></a>
+
+<h1>List Companies by Cause</h1>
+<table class="centeredTable">
+    <tr>
+        <th>All</th>
+        <th>Cause</th>
+    </tr>
+
+    <tr>
+        <td>
+            <li>
+                <a th:href="@{/list-companies/company-results(column='All',value='View All')}">View All</a>
+            </li>
+        </td>
+        <td>
+            <li th:each="tag : ${tags}">
+                <a th:href="@{/list-companies/company-results(column=tags,value=${tag.name})}" th:text="${tag.name}"></a>
+            </li>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

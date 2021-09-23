@@ -40,5 +40,22 @@
         </ul>
     </div>
 </nav>
+
+<header th:fragment="admin-header">
+    <h1 th:text="${title}">Helpr Admin</h1>
+    <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="/user-home">Back to User Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/admin">Admin Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/tags">All Causes by Tag</a></li>
+        <li class="nav-item"><a class="nav-link" href="/tags/create">Create Tag</a></li>
+        <li class="nav-item"><a class="nav-link" href="/tags/delete">Delete Tags</a></li>
+        <li class="nav-item"><a class="nav-link" href="/volunteers">All Volunteers</a></li>
+        <li class="nav-item"><a class="nav-link" href="/volunteers/create">Create Volunteer</a></li>
+        <li class="nav-item"><a class="nav-link" href="/volunteers/delete">Delete Volunteers</a></li>
+        <li class="nav-item"><a class="nav-link" href="/companies">All Companies</a></li>
+        <li class="nav-item"><a class="nav-link" href="/companies/create">Create Company</a></li>
+        <li class="nav-item"><a class="nav-link" href="/companies/delete">Delete Companies</a></li>
+    </ul>
+</header>
 </body>
 </html>

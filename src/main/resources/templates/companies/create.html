@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+
+<header th:replace="fragments :: admin-header"></header>
+
+<form method="post">
+    <div class="form-group">
+        <label>Company Name
+            <input th:field="${company.name}" class="form-control">
+        </label>
+        <p class="error" th:errors="${company.name}"></p>
+    </div>
+    <div class="form-group">
+        <label>Contact Email Address
+            <input th:field="${company.email}" class="form-control">
+        </label>
+        <p class="error" th:errors="${company.email}"></p>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-success">
+    </div>
+</form>
+
+</body>
+</html>

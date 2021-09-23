@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+
+<a class="nav-link" href="/list-volunteers">Back</a></a>
+
+<div class="container body-content">
+
+    <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+
+    <table class="volunteer-listing">
+        <tr th:each="volunteer : ${volunteers}">
+            <td>
+                <p>
+                    Volunteer Id:
+                    <a th:href="@{'/list-volunteers/view/' + ${volunteer.id}}" th:text="${volunteer.id}"></a>
+                </p>
+                <p th:text="${'Name: ' + volunteer.username}"></p>
+<!--                <p th:text="${'Email: ' + volunteer.email}"></p>-->
+                <p>Email:</p>
+                <a th:href="${'mailto:' + volunteer.email}" th:text="${volunteer.email}"></a>
+                <p>
+                    Causes:
+                <ul th:each="tag : ${volunteer.tags}">
+                    <li th:text="${tag.name}"></li>
+                </ul>
+                </p>
+            </td>
+        </tr>
+    </table>
+
+</div>
+</body>
+</html>

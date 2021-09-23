@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+
+<header th:replace="fragments :: admin-header"></header>
+
+<table>
+    <tr>
+        <th>Company ID</th>
+        <td th:text="${company.id}"></td>
+    </tr>
+    <tr>
+        <th>Company Name</th>
+        <td th:text="${company.name}"></td>
+    </tr>
+    <tr>
+        <th>Contact Email</th>
+        <td th:text="${company.email}"></td>
+    </tr>
+    <tr>
+        <th>Tags</th>
+        <td>
+            <span th:each="tag : ${tags}" th:text="${tag.displayName} + ' '"></span>
+        </td>
+    </tr>
+</table>
+
+<a th:href="'/companies/add-tag?companyId=' + ${company.id}">Add Tag</a>
+
+</body>
+</html>
