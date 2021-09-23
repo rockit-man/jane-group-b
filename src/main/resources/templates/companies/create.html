@@ -16,6 +16,12 @@
         <p class="error" th:errors="${company.name}"></p>
     </div>
     <div class="form-group">
+        <label>Location
+            <input th:field="${company.location}" class="form-control">
+        </label>
+        <p class="error" th:errors="${company.location}"></p>
+    </div>
+    <div class="form-group">
         <label>Contact Email Address
             <input th:field="${company.email}" class="form-control">
         </label>

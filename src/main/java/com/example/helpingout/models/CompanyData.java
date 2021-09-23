@@ -32,6 +32,8 @@ public class CompanyData {
         String theValue;
         if (fieldName.equals("name")){
             theValue = company.getName();
+        } else if (fieldName.equals("location")){
+            theValue = company.getLocation();
         } else {
             theValue = company.getTags().toString();
         }
@@ -47,6 +49,8 @@ public class CompanyData {
         for (Company company : allCompanies) {
 
             if (company.getName().toLowerCase().contains(lower_val)) {
+                results.add(company);
+            } else if (company.getLocation().toLowerCase().contains(lower_val)) {
                 results.add(company);
             } else if (company.getTags().toString().toLowerCase().contains(lower_val)) {
                 results.add(company);

@@ -20,6 +20,10 @@ public class Company {
     @Size(min = 3, max = 50, message = "Name must be 3-50 characters.")
     private String name;
 
+    @NotBlank(message = "Location required.")
+    @Size(min = 3, max = 50, message = "Location must be 3-50 characters.")
+    private String location;
+
     @NotBlank(message = "An email address is required.")
     @Email(message = "Invalid email. Please try again.")
     private String email;
@@ -29,12 +33,14 @@ public class Company {
     @ManyToMany
     private List<Tag> tags = new ArrayList<>();
 
-    public Company(int id, String name, String email, Boolean isOrg) {
+    public Company(int id, String name, String location, String email, Boolean isOrg) {
         this.id = id;
         this.name = name;
+        this.location = location;
         this.email = email;
         this.isOrg = isOrg;
     }
+
 
     public Company() {}
 
@@ -48,6 +54,14 @@ public class Company {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public String getEmail() {

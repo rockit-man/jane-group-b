@@ -11,6 +11,7 @@
 <div class="company-listing">
     <p th:text="${'ID: ' + company.id}"></p>
     <p th:text="${'Company Name: ' + company.name}"></p>
+    <p th:text="${'Location: ' + company.location}"></p>
 <!--    <p th:text="${'Contact Email: ' + company.email}"></p>-->
     <p>Contact Email:</p>
     <a th:href="${'mailto:' + company.email}" th:text="${company.email}"></a>

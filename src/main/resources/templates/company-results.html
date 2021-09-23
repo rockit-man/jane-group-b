@@ -20,6 +20,7 @@
                     <a th:href="@{'/list-companies/company-view/' + ${company.id}}" th:text="${company.id}"></a>
                 </p>
                 <p th:text="${'Company Name: ' + company.name}"></p>
+                <p th:text="${'Location: ' + company.location}"></p>
 <!--                <p th:text="${'Contact Email: ' + company.email}"></p>-->
                 <p>Contact Email:</p>
                 <a th:href="${'mailto:' + company.email}" th:text="${company.email}"></a>
