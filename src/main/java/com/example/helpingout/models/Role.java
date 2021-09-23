@@ -32,7 +32,12 @@ public enum Role implements GrantedAuthority {
         public static final String USER = "ROLE_USER";
     }
 
-//
+    @Override
+    public String toString() {
+        return authority;
+    }
+
+    //
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    private Integer id;

@@ -46,13 +46,13 @@ public class User implements UserDetails {
 
     private Boolean isOrg;
 
-    private Role role;
+    private String role;
 
     @ManyToMany
     private final List<Tag> tags = new ArrayList<>();
 
     public User(String username, String lastname, String firstname, String email, String password,
-                Boolean isOrg, boolean accountNonLocked, Role role) {
+                Boolean isOrg, boolean accountNonLocked, String role) {
         this.username = username;
         this.lastname = lastname;
         this.firstname = firstname;
@@ -139,8 +139,8 @@ public class User implements UserDetails {
     public void addTag(Tag tag) {
         this.tags.add(tag);
     }
-    public Role getRole() { return role; }
-    public void setRole(Role role) { this.role = role; }
+    public String getRole() { return role; }
+    public void setRole(String role) { this.role = role; }
 
     @Override
     public String toString() {

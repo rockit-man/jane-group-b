@@ -14,10 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -46,13 +43,17 @@ public class UserController {
         return "/registration";
     }
 @PostMapping(
-            value ="/registration",
-           consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+            value = "/registration",
+            consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE
+   )
 public String processRegistrationForm(@ModelAttribute @Valid User newUser, Errors errors, Model model) {
-        if(errors.hasErrors()) {
-            model.addAttribute("title", "Register Here");
-            return "/registration";
-        }
+        model.addAttribute("title", "Submit Registration");
+        newUser.setFirstname(newUser.getUsername());
+    newUser.setLastname(newUser.getLastname());
+    newUser.setOrg(false);
+    newUser.setEmail(newUser.getEmail());
+    newUser.setRole(newUser.getRole());
+    newUser.setAccountNonLocked(true);
         userDetailsManager.createUser(newUser);
         return "redirect:";
 }
