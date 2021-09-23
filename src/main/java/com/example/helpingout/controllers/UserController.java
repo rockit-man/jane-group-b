@@ -45,40 +45,41 @@ public class UserController {
         model.addAttribute("roles", Role.values());
         return "/registration";
     }
-@PostMapping(
-            value ="/registration",
-           consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-public String processRegistrationForm(@ModelAttribute @Valid User newUser, Errors errors, Model model) {
-        if(errors.hasErrors()) {
-            model.addAttribute("title", "Register Here");
-            return "/registration";
-        }
-        userDetailsManager.createUser(newUser);
-        return "redirect:";
-}
-//    @PostMapping(
-//            value = "/registration",
-//            consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE
-//    )
-//    public void addUser(@RequestParam Map<String, String> body) {
-//        User user = new User();
-//        user.setUsername(body.get("username"));
-//        user.setPassword(passwordEncoder.encode(body.get("password")));
-//        user.setAccountNonLocked(true);
-//        user.setFirstname(body.get("firstName"));
-//        user.setLastname(body.get("lastName"));
-//        user.setEmail(body.get("email"));
-//        Boolean org;
-//        if (body.get("isOrg").equals("Yes")) {
-//                user.setOrg(true);
-//            } else if (body.get("isOrg").equals("No")) {
-//                user.setOrg(false);
-//            } else {
-//                user.setOrg(false);
-//            }
-//        user.setRole(body.get("role"));
-//        userDetailsManager.createUser(user);
-//    }
+//@PostMapping(
+//            value ="/registration",
+//           consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+//public String processRegistrationForm(@ModelAttribute @Valid User newUser, Errors errors, Model model) {
+//    User user = new User();
+//    if(errors.hasErrors()) {
+//            model.addAttribute("title", "Register Here");
+//            return "/registration";
+//        }
+//        userDetailsManager.createUser(newUser);
+//        return "redirect:";
+//}
+    @PostMapping(
+            value = "/registration",
+            consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE
+    )
+    public void addUser(@RequestParam Map<String, String> body) {
+        User user = new User();
+        user.setUsername(body.get("username"));
+        user.setPassword(passwordEncoder.encode(body.get("password")));
+        user.setAccountNonLocked(true);
+        user.setFirstname(body.get("firstName"));
+        user.setLastname(body.get("lastName"));
+        user.setEmail(body.get("email"));
+        Boolean org;
+        if (body.get("isOrg").equalsIgnoreCase("Yes")) {
+                user.setOrg(true);
+            } else if (body.get("isOrg").equalsIgnoreCase("No")) {
+                user.setOrg(false);
+            } else {
+                user.setOrg(false);
+            }
+        user.setRole(body.get("role"));
+        userDetailsManager.createUser(user);
+    }
 
     private String getErrorMessage(HttpServletRequest request, String key) {
         Exception exception = (Exception) request.getSession().getAttribute(key);

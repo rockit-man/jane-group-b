@@ -14,10 +14,16 @@ public enum Role implements GrantedAuthority {
     private final String displayName;
     private final String authority;
 
-    Role(String displayName, String authority){
+    Role(String displayName, String authority) {
         this.displayName = displayName;
         this.authority = authority;
     }
+
+    @Override
+    public String toString() {
+        return displayName;
+    }
+
     public String getDisplayName() {
         return displayName;
     }

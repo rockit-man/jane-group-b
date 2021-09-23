@@ -15,6 +15,16 @@
 <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
 <p> This is your user landing page. You'll be able to view your profile here, and make changes. For now, your only
     option is to...</p>
+
+
+<a class="nav-link" href="/list-volunteers">List Volunteers by Cause</a></a>
+
+<a class="nav-link" href="/list-companies">List Companies by Cause</a></a>
+
+<a class="nav-link" href="/admin">Admin Home</a></a>
+
+
+
 <form th:action="@{/logout}" method="post">
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Out</button>
 </form>
