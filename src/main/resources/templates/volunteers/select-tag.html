@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<head>
+<head xmlns:th="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Narrow Jumbotron Template for Bootstrap</title>
+    <title>Select a Cause</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../css/editor.css" rel="stylesheet">
@@ -23,7 +24,10 @@
     <div class="jumbotron" style="text-align: center;">
         <h1 class="display-3" style="margin-bottom: 6px; line-height: 80px; text-align: center;">Select a Cause</h1>
         <p class="lead" style="text-align: center; font-weight: 300; width: 642px; position: static; margin-top: 6px; display: inline;">
-            Tell us how you can help. We'll help you get connected from there.<div class="form-group" style=""><label style="margin-bottom: 23px;">Choose an option </label><select class="form-control" style="margin-bottom: 30px;"><option value="value1"></option></select></div></p>
+            Tell us how you can help. We'll help you get connected from there.</p>
+        <div class="form-group" style=""><label style="margin-bottom: 23px;">Choose an option </label>
+            <select class="form-control" style="margin-bottom: 30px;"><option
+                    th:each="tag : ${tagRepository}" value="${tag}"></option></select></div>
         <form style="">
             <div class="form-group">
 
