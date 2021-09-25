@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="fragments :: head">
+    <title>All Causes</title>
+</head>
+<body>
+    <nav th:replace="fragments :: navbar"></nav>
+
+    <div style="margin-top: 5%">
+        <header th:replace="fragments :: volunteer-header"></header>
+    </div>
+
+    <div style="margin-top: 5%">
+        <h1>All Causes</h1>
+    </div>
+
+    <div class="list-group" style="margin-top: 5%">
+        <div th:each="tag : ${tags}">
+            <a href="#" class="list-group-item list-group-item-action"><td th:text="${tag.displayName}"></td></a>
+        </div>
+    </div>
+
+</body>
+</html>

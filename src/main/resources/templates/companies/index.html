@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="fragments :: head">
+    <title>All Organizations</title>
+</head>
+<body>
+
+<header th:replace="fragments :: volunteer-header"></header>
+
+<table>
+    <thead>
+    <tr>
+        <th>Companies</th>
+    </tr>
+    </thead>
+    <tr th:each="company : ${companies}">
+        <td><a th:href="'/companies/detail?companyId=' + ${company.id}" th:text="${company.name}"></a></td>
+    </tr>
+</table>
+
+</body>
+</html>

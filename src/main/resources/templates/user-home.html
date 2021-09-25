@@ -8,15 +8,20 @@
 </head>
 <body>
     <nav th:replace="fragments :: navbar"></nav>
-    <br>
-    <br>
-    <br>
-    <br>
-    <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
-    <p> This is your user landing page. You'll be able to view your profile here, and make changes. For now, your only
-        option is to...</p>
-    <form th:action="@{/volunteers/volunteer-home}">
-        <button class="btn btn-lg btn-primary" type="submit">View My Dashboard</button>
-    </form>
+    <div style="margin-top: 5%">
+        <header th:replace="fragments :: admin-header"></header>
+    </div>
+    <div style="margin-top: 5%">
+        <h1 th:inline="text">Welcome, [[${#httpServletRequest.remoteUser}]]!</h1>
+    </div>
+    <div style="margin-top: 1%; text-align: center;">
+        <p> This is your user landing page. From here, you'll be able to view your profile and make changes. For
+            now, your only option is to...</p>
+    </div>
+    <div style="margin-top: 2%">
+        <form th:action="@{/volunteers/volunteer-home}">
+            <button class="btn btn-lg btn-primary" type="submit">View My Dashboard</button>
+        </form>
+    </div>
 </body>
 </html>
