@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Helpr Admin</title>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="fragments :: head">
+    <title>All Causes</title>
 </head>
 <body>
+<nav th:replace="fragments :: navbar"></nav>
 
-<header th:replace="fragments :: admin-header"></header>
+<div style="margin-top: 5%">
+    <header th:replace="fragments :: volunteer-header"></header>
+</div>
 
-<table>
-    <thead>
-    <tr>
-        <th>Cause</th>
-    </tr>
-    </thead>
-    <tr th:each="tag : ${tags}">
-        <td th:text="${tag.displayName}"></td>
-    </tr>
-</table>
+<div style="margin-top: 5%">
+    <h1>All Causes</h1>
+</div>
+
+<div class="list-group" style="margin-top: 5%">
+    <div th:each="tag : ${tags}">
+        <a href="#" class="list-group-item list-group-item-action"><td th:text="${tag.displayName}"></td></a>
+    </div>
+</div>
 
 </body>
 </html>
