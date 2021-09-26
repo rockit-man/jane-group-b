@@ -4,20 +4,21 @@
     <title>All Organizations</title>
 </head>
 <body>
-    <nav
+    <nav th:replace="fragments :: navbar"></nav>
 
-<header th:replace="fragments :: volunteer-header"></header>
+    <div style="margin-top: 5%">
+        <header th:replace="fragments :: volunteer-header"></header>
+    </div>
 
-<table>
-    <thead>
-    <tr>
-        <th>Companies</th>
-    </tr>
-    </thead>
-    <tr th:each="company : ${companies}">
-        <td><a th:href="'/companies/detail?companyId=' + ${company.id}" th:text="${company.name}"></a></td>
-    </tr>
-</table>
+    <div style="margin-top: 5%">
+        <h1>All Organizations</h1>
+    </div>
+
+    <div class="list-group" style="margin-top: 5%">
+        <div th:each="company : ${companies}">
+            <a href="#" class="list-group-item list-group-item-action"><td th:text="${company.name}"></td></a>
+        </div>
+    </div>
 
 </body>
 </html>
