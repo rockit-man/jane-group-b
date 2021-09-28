@@ -6,24 +6,21 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta charset="utf-8"/>
-    <title>Volunteer Dashboard</title>
+    <title>Organization Dashboard</title>
 </head>
 <body>
 <nav th:replace="fragments :: navbar"></nav>
 <br>
 <br>
 <br>
-
-<header th:replace="fragments :: admin-header"></header>
-
+<header th:replace="fragments :: company-header"></header>
 <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
-<p> This is your admin profile page. You'll be able to view your profile here, and make changes. For now, your only
+<p> This is your company profile page. You'll be able to view your profile here, and make changes. For now, your only
     option is to...</p>
 
 
 <form th:action="@{/logout}" method="post">
     <button class="btn btn-lg btn-primary" type="submit">Sign Out</button>
 </form>
-
 </body>
 </html>

@@ -13,17 +13,12 @@
 <br>
 <br>
 <br>
-
-<header th:replace="fragments :: admin-header"></header>
-
+<header th:replace="fragments :: volunteer-header"></header>
 <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
-<p> This is your admin profile page. You'll be able to view your profile here, and make changes. For now, your only
-    option is to...</p>
-
-
+<p> This is your volunteer dashboard. You'll be able to view and update your profile here. Thanks for being a
+    helpr!</p>
 <form th:action="@{/logout}" method="post">
     <button class="btn btn-lg btn-primary" type="submit">Sign Out</button>
 </form>
-
 </body>
 </html>

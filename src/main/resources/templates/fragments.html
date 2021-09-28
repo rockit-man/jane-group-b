@@ -23,11 +23,6 @@
                 </a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#" th:href="@{/user-home}">
-                    Dashboard
-                </a>
-            </li>
-            <li class="nav-item active">
                 <a class="nav-link" href="#" th:href="@{/login}">
                     Sign In
                 </a>
@@ -39,7 +34,17 @@
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="#" th:href="@{/admin}">
-                    Admin
+                    Admin Dashboard
+                </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#" th:href="@{/volunteer-home}">
+                    Volunteer Dashboard
+                </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#" th:href="@{/company-home}">
+                    Organization Dashboard
                 </a>
             </li>
         </ul>
@@ -52,7 +57,7 @@
         <li class="nav-item"><a class="nav-link" href="/user-home">Back to User Home</a></li>
         <li class="nav-item"><a class="nav-link" href="/admin">Admin Home</a></li>
         <li class="nav-item"><a class="nav-link" href="/tags">All Causes by Tag</a></li>
-        <li class="nav-item"><a class="nav-link" href="/tags/create">Create Tag</a></li>
+        <li class="nav-item"><a class="nav-link" href="/tags/create">Create New Tag</a></li>
         <li class="nav-item"><a class="nav-link" href="/tags/delete">Delete Tags</a></li>
         <li class="nav-item"><a class="nav-link" href="/volunteers">All Volunteers</a></li>
         <li class="nav-item"><a class="nav-link" href="/volunteers/create">Create Volunteer</a></li>
@@ -60,6 +65,28 @@
         <li class="nav-item"><a class="nav-link" href="/companies">All Companies</a></li>
         <li class="nav-item"><a class="nav-link" href="/companies/create">Create Company</a></li>
         <li class="nav-item"><a class="nav-link" href="/companies/delete">Delete Companies</a></li>
+    </ul>
+</header>
+
+<header th:fragment="volunteer-header">
+    <h1 th:text="${title}">Helpr Volunteer</h1>
+    <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="/volunteer-home">Volunteer Dashboard</a></li>
+<!--        <li class="nav-item"><a class="nav-link" href="/volunteers/detail">Edit Profile</a></li>-->
+        <li class="nav-item"><a class="nav-link" href="/tags">List Causes by Tags</a></li>
+        <li class="nav-item"><a class="nav-link" href="/list-companies">List Organizations by Cause</a></li>
+    </ul>
+</header>
+
+<header th:fragment="company-header">
+    <h1 th:text="${title}">Helpr Organization</h1>
+    <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="/company-home">Organization Dashboard</a></li>
+<!--        <li class="nav-item"><a class="nav-link" href="/companies/detail">Edit Profile</a></li>-->
+        <li class="nav-item"><a class="nav-link" href="/tags">List Causes by Tags</a></li>
+<!--        <li class="nav-item"><a class="nav-link" href="/list-companies">All Organizations</a></li>-->
+        <li class="nav-item"><a class="nav-link" href="/list-volunteers">List Volunteers by Cause</a></li>
+        <li class="nav-item"><a class="nav-link" href="/tags/create">Create New Tag</a></li>
     </ul>
 </header>
 </body>

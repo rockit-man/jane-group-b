@@ -2,10 +2,13 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8"/>
-    <title></title>
+    <title>Create Tag</title>
 </head>
 <body>
-
+<head th:replace="fragments :: head">
+    <nav th:replace="fragments :: navbar"></nav>
+    <br>
+    <br>
 <header th:replace="fragments :: admin-header"></header>
 
 <form method="post">
