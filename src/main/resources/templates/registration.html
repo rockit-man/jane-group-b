@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.com/"
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th=“http://www.thymeleaf.org”
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head th:replace="fragments :: head">
     <title>Create your account</title>
@@ -12,7 +12,7 @@
 <br>
 <!-- Register Form-->
 <form action="/registration" method="post">
-    <div>
+    <div class="form-group">
         <label class="d-flex">First Name</label>
         <input type="text"
                placeholder="John"
@@ -20,7 +20,7 @@
                id="firstName"
                class="form-control">
     </div> <!-- end firstName-->
-    <div>
+    <div class="form-group">
         <label class="d-flex">Last Name</label>
         <input type="text"
                placeholder="Smith"
@@ -48,7 +48,7 @@
                    class="form-control">
 <!--        </div> &lt;!&ndash; end isOrg&ndash;&gt;-->
     </div>
-    <div>
+    <div class="form-group">
         <label for="email" class="d-flex">Email</label>
         <input type="email"
                placeholder="jsmith123@gmail.com"
@@ -56,7 +56,7 @@
                id="email"
                class="form-control">
     </div> <!-- end email-->
-    <div>
+    <div class="form-group">
         <label for="password" class="d-flex">Password</label>
         <input type="password"
                placeholder="******"
@@ -65,18 +65,21 @@
                class="form-control">
     </div> <!-- end password-->
     <br>
-    <div style="text-align: center">
+    <div class="form-group">
         <button class="btn btn-md btn-primary mb-2" type="submit">Submit Registration</button>
     </div>
+
 </form>
 <style>
         body {
             padding-top: 100px;
+            text-align: center;
             }
         div {
             width: 400px;
             margin: auto;
+            align-items: stretch;
             }
-    </style>
+</style>
 </body>
 </html>
