@@ -1,27 +1,30 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head th:replace="fragments :: head">
-    <!--    Adding Bootstrap styling-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <meta charset="utf-8"/>
     <title>Home</title>
 </head>
 <body>
 <nav th:replace="fragments :: navbar"></nav>
-<br>
-<br>
-<br>
-<br>
-<h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
-<p> This is your user landing page. You'll be able to view your profile here, and make changes. For now, your only
-    option is to...</p>
-<form th:action="@{/volunteer-home}">
-    <button class="btn btn-lg btn-primary" type="submit">View My Dashboard</button>
-</form>
-<br>
-<p>Or you can also...</p>
-<form th:action="@{/logout}" method="post">
-    <button class="btn btn-lg btn-primary" type="submit">Sign Out</button>
-</form>
+<div style="margin-top: 15%">
+    <h1 th:inline="text">Welcome, [[${#httpServletRequest.remoteUser}]]!</h1>
+</div>
+<div style="margin-top: 1%; text-align: center;">
+    <p> This is your user landing page. From here, you'll be able to view your profile and make changes. For
+        now, your only option is to...</p>
+</div>
+<div>
+    <form th:action="@{/admin}">
+        <button class="btn btn-lg btn-primary" type="submit">View My Dashboard</button>
+    </form>
+</div>
+<div style="text-align: center; margin-top: 2%">
+    <p>Or you can also...</p>
+</div>
+<div>
+    <form>
+        <button class="btn btn-lg btn-primary" type="submit">Sign Out</button>
+    </form>
+</div>
 </body>
 </html>
