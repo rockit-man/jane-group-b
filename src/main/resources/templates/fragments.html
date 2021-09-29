@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th=“http://www.thymeleaf.org”
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head th:fragment="head">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <link th:href="@{/css/styling.css}" rel="stylesheet" />
+    <meta charset="UTF-8">
 </head>
 <body>
 <nav th:fragment="navbar" class="navbar navbar-expand-md navbar-dark bg-info fixed-top">
@@ -53,7 +54,7 @@
 
 <header th:fragment="admin-header">
     <h1 th:text="${title}">Helpr Admin</h1>
-    <ul class="nav">
+    <ul class="nav justify-content-center">
         <li class="nav-item"><a class="nav-link" href="/user-home">Back to User Home</a></li>
         <li class="nav-item"><a class="nav-link" href="/admin">Admin Home</a></li>
         <li class="nav-item"><a class="nav-link" href="/tags">All Causes by Tag</a></li>
@@ -70,7 +71,7 @@
 
 <header th:fragment="volunteer-header">
     <h1 th:text="${title}">Helpr Volunteer</h1>
-    <ul class="nav">
+    <ul class="nav justify-content-center">
         <li class="nav-item"><a class="nav-link" href="/volunteer-home">Volunteer Dashboard</a></li>
 <!--        <li class="nav-item"><a class="nav-link" href="/volunteers/detail">Edit Profile</a></li>-->
         <li class="nav-item"><a class="nav-link" href="/tags">List Causes by Tags</a></li>
@@ -80,7 +81,7 @@
 
 <header th:fragment="company-header">
     <h1 th:text="${title}">Helpr Organization</h1>
-    <ul class="nav">
+    <ul class="nav justify-content-center">
         <li class="nav-item"><a class="nav-link" href="/company-home">Organization Dashboard</a></li>
 <!--        <li class="nav-item"><a class="nav-link" href="/companies/detail">Edit Profile</a></li>-->
         <li class="nav-item"><a class="nav-link" href="/tags">List Causes by Tags</a></li>

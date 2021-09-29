@@ -1,15 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th=“http://www.thymeleaf.org”
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head th:replace="fragments :: head">
-    <!--    Adding Bootstrap styling-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <meta charset="utf-8"/>
     <title>Volunteer Details</title>
 </head>
 <body>
-
-<a class="nav-link" href="/list-volunteers">Back to List Volunteers by Cause</a></a>
+<nav th:replace="fragments :: navbar"></nav>
+<a class="nav-link" style="margin-top: 10%" href="/list-volunteers">Back to List Volunteers by Cause</a></a>
 
 <div class="volunteer-listing">
     <p th:text="${'ID: ' + volunteer.id}"></p>
