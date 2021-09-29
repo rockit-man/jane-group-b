@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-<head>
-    <head th:replace="fragments :: head">
-        <nav th:replace="fragments :: navbar"></nav>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<head th:replace="fragments :: head">
     <title>Create your account</title>
 </head>
 <body>
+<nav th:replace="fragments :: navbar"></nav>
 <!--<br>-->
 <!--<h1 class="my-5">Sign up!</h1>-->
 <!--<form action="/registration" method="post">-->
@@ -69,7 +67,7 @@
 <!--            <button type="submit" class="btn btn-primary white-text btn">Create Account</button>-->
 <!--        </div>-->
 <!--</form>-->
-<div>
+<div style="margin-top: 10%">
     <h2>Sign up here!</h2>
 </div>
 <br>
