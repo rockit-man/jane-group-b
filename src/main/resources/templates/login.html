@@ -1,18 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.com/"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head th:replace="fragments :: head">
     <title>Login</title>
 </head>
 <body class="text-center" style="width: 300px; margin: auto;">
 <nav th:replace="fragments :: navbar"></nav>
-<div th:if="${param.error}" style="margin-top: 50%">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div th:if="${param.error}">
     Invalid username and password.
 </div>
-<div th:if="${param.logout}" style="margin-top: 50%">
+<div th:if="${param.logout}">
     You have been logged out.
 </div>
-<div style="margin-top: 50%">
+<div>
     <h2>Sign into your account</h2>
 <form th:action="@{/login}" class="form-signin" style="margin-top: 5%" method="post">
     <div><label for="username" class="sr-only"> User Name : </label>
