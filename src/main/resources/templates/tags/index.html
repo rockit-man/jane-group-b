@@ -1,26 +1,55 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th=“http://www.thymeleaf.org”
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head th:replace="fragments :: head">
-    <title>Causes</title>
+    <title>All Causes</title>
 </head>
 <body>
-<head th:replace="fragments :: head">
-    <nav th:replace="fragments :: navbar"></nav>
-    <br>
-    <br>
-<header th:replace="fragments :: admin-header"></header>
+<nav th:replace="fragments :: navbar"></nav>
 
-<table>
-    <thead>
-    <tr>
-        <th>Cause</th>
-    </tr>
-    </thead>
-    <tr th:each="tag : ${tags}">
-        <td th:text="${tag.displayName}"></td>
-    </tr>
-</table>
+<div style="margin-top: 5%">
+    <header th:replace="fragments :: admin-header"></header>
+</div>
 
+<div style="margin-top: 5%">
+    <h1>All Causes</h1>
+</div>
+
+<div class="list-group" style="margin-top: 3%">
+    <div th:each="tag : ${tags}">
+        <a href="#" class="list-group-item list-group-item-action"><td th:text="${tag.displayName}"></td></a>
+    </div>
+</div>
+<style>
+div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.list-group {
+    display: inline-flex;
+    flex-direction: row;
+    margin-bottom: 0%;
+}
+
+.list-group-item:last-child {
+    border-bottom-right-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+}
+
+.list-group-item:first-child {
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+}
+
+.list-group-item {
+    position: inherit;
+    display: table-row-group;
+    padding: .75rem 1.25rem;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.125);
+}
+</style>
 </body>
 </html>

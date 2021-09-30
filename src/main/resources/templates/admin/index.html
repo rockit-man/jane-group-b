@@ -10,7 +10,7 @@
     <header th:replace="fragments :: admin-header"></header>
 </div>
 <div style="margin-top: 5%">
-    <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+    <h1 th:inline="text">Hello, [[${#httpServletRequest.remoteUser}]]!</h1>
 </div>
 <div style="margin-top: 1%">
     <p> This is the admin dashboard. Here, admins can create, update, and delete users, volunteers, organizations,

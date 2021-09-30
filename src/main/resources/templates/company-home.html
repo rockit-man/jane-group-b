@@ -10,7 +10,7 @@
     <header th:replace="fragments :: company-header"></header>
 </div>
 <div style="margin-top: 5%">
-    <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+    <h1 th:inline="text">Hello, [[${#httpServletRequest.remoteUser}]]!</h1>
 </div>
 <div style="margin-top: 1%">
     <p> This is the organization dashboard. Here, organizations can view a list of helpr causes, add or remove causes

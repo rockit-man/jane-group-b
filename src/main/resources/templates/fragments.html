@@ -16,36 +16,36 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="navbar-collapse collapse" id="navbarsExampleDefault" style>
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav justify-content-center mr-auto" style="padding-right: 4%; margin-left: auto;">
             <li class="nav-item active">
                 <a class="nav-link" href="#" th:href="@{/index}">
-                    Home
+                    &nbsp;Home&nbsp;
                     <span class="sr-only">(current)</span>
                 </a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="#" th:href="@{/login}">
-                    Sign In
+                    &nbsp;Sign In&nbsp;
                 </a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="#" th:href="@{/registration}">
-                    Create Account
+                    &nbsp;Create Account&nbsp;
                 </a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="#" th:href="@{/admin}">
-                    Admin Dashboard
+                    &nbsp;Admin Dashboard&nbsp;
                 </a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="#" th:href="@{/volunteer-home}">
-                    Volunteer Dashboard
+                    &nbsp;Volunteer Dashboard&nbsp;
                 </a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="#" th:href="@{/company-home}">
-                    Organization Dashboard
+                    &nbsp;Organization Dashboard&nbsp;
                 </a>
             </li>
         </ul>
@@ -53,7 +53,7 @@
 </nav>
 
 <header th:fragment="admin-header">
-    <h1 th:text="${title}">Helpr Admin</h1>
+<!--    <h1 th:text="${title}">Helpr Admin</h1>-->
     <ul class="nav justify-content-center">
         <li class="nav-item"><a class="nav-link" href="/user-home">Back to User Home</a></li>
         <li class="nav-item"><a class="nav-link" href="/admin">Admin Home</a></li>
@@ -70,7 +70,7 @@
 </header>
 
 <header th:fragment="volunteer-header">
-    <h1 th:text="${title}">Helpr Volunteer</h1>
+<!--    <h1 th:text="${title}">Helpr Volunteer</h1>-->
     <ul class="nav justify-content-center">
         <li class="nav-item"><a class="nav-link" href="/volunteer-home">Volunteer Dashboard</a></li>
 <!--        <li class="nav-item"><a class="nav-link" href="/volunteers/detail">Edit Profile</a></li>-->
@@ -80,7 +80,7 @@
 </header>
 
 <header th:fragment="company-header">
-    <h1 th:text="${title}">Helpr Organization</h1>
+<!--    <h1 th:text="${title}">Helpr Organization</h1>-->
     <ul class="nav justify-content-center">
         <li class="nav-item"><a class="nav-link" href="/company-home">Organization Dashboard</a></li>
 <!--        <li class="nav-item"><a class="nav-link" href="/companies/detail">Edit Profile</a></li>-->
