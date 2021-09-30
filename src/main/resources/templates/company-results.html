@@ -1,38 +1,56 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th=“http://www.thymeleaf.org”
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head">
     <title>Company Results</title>
 </head>
 <body>
+<nav th:replace="fragments :: navbar"></nav>
 
-<a href="/list-companies">Back</a></a>
+<div style="margin-top: 5%">
+    <header th:replace="fragments :: admin-header"></header>
+</div>
 
-<div class="container body-content">
+<h1 class="d-flex justify-content-center"style="margin-top: 4%" th:text="${#strings.capitalizeWords(title)}"></h1>
 
-    <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
-
-    <table class="company-listing">
-        <tr th:each="company : ${companies}">
-            <td>
-                <p>
-                    Company Id:
-                    <a th:href="@{'/list-companies/company-view/' + ${company.id}}" th:text="${company.id}"></a>
-                </p>
-                <p th:text="${'Company Name: ' + company.name}"></p>
-<!--                <p th:text="${'Contact Email: ' + company.email}"></p>-->
-                <p>Contact Email:</p>
-                <a th:href="${'mailto:' + company.email}" th:text="${company.email}"></a>
-                <p>
-                    Causes:
-                <ul th:each="tag : ${company.tags}">
-                    <li th:text="${tag.name}"></li>
-                </ul>
-                </p>
-            </td>
-        </tr>
-    </table>
-
+<ul class="list-group" style="margin-top: 2%">
+    <li th:each="company : ${companies}">
+        <div class="card" style="margin-top: 2%">
+            <div class="card-body col align-self-start" style="">
+                <tr>
+                    <td>
+                        <div>
+                            <ul class="list-group d-flex justify-content-center">
+                                <p class="card-text">
+                                    Company Id:
+                                    <a th:href="@{'/list-companies/company-view/' + ${company.id}}" th:text="${company.id}"></a>
+                                </p>
+                                <h5 class="card-text" th:text="${'Company Name: ' + company.name}"></h5>
+                                <p class="card-text">
+                                    Contact Email:
+                                    <a th:href="${'mailto:' + company.email}" th:text="${company.email}"></a>
+                                </p>
+                                <!--                                    <a class="card-text" th:href="${'mailto:' + company.email}" th:text="${company.email}"></a>-->
+                                <p class="card-text" style="font-weight: bold">
+                                    Causes:
+                                </p>
+                                <div>
+                                    <ul class="list-group" th:each="tag : ${company.tags}">
+                                        <li class="d-flex justify-content-center" th:text="${tag.name}"></li>
+                                    </ul>
+                                </div>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </div>
+        </div>
+    </li>
+</ul>
+<div style="margin-top: 3%; margin-bottom: 5%">
+    <form th:action="@{/list-companies}">
+        <button class="btn btn-lg btn-primary" type="submit">Go Back</button>
+    </form>
+</div>
 </div>
 </body>
 </html>
