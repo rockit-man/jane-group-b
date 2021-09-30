@@ -10,7 +10,7 @@
     <header th:replace="fragments :: volunteer-header"></header>
 </div>
 <div style="margin-top: 5%">
-    <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+    <h1 th:inline="text">Hello, [[${#httpServletRequest.remoteUser}]]!</h1>
 </div>
 <div style="margin-top: 1%">
     <p> This is your volunteer dashboard. Here, volunteers can add or remove cause tags associated with their volunteer
