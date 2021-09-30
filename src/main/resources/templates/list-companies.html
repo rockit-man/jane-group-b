@@ -1,32 +1,86 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th=“http://www.thymeleaf.org”
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head">
     <title>List Companies</title>
 </head>
 <body>
+<nav th:replace="fragments :: navbar"></nav>
 
-<a class="nav-link" href="/user-home">Back to User Home</a></a>
+<div style="margin-top: 5%">
+    <header th:replace="fragments :: admin-header"></header>
+</div>
 
-<h1>List Companies by Cause</h1>
-<table class="centeredTable">
-    <tr>
-        <th>All</th>
-        <th>Cause</th>
-    </tr>
+<div style="margin-top: 4%">
+    <h1>Meet our partners!</h1>
+    <p>We are thrilled to work with organizations that are helping. Get to know them!</p>
+</div>
 
-    <tr>
-        <td>
-            <li>
-                <a th:href="@{/list-companies/company-results(column='All',value='View All')}">View All</a>
-            </li>
-        </td>
-        <td>
-            <li th:each="tag : ${tags}">
-                <a th:href="@{/list-companies/company-results(column=tags,value=${tag.name})}" th:text="${tag.name}"></a>
-            </li>
-        </td>
-    </tr>
-</table>
+<div class="container" style="margin-top: 5%">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <h5 class="card-header">List By Cause</h5>
+                <div class="card-body">
+                    <p class="card-text">Click a cause to see the organizations that support it.</p>
+                    <ul class="list-group">
+                        <li  th:each="tag : ${tags}" class="d-flex justify-content-center">
+                            <a th:href="@{/list-companies/company-results(column=tags,value=${tag.name})}" th:text="${tag.name}"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col align-self-start" style="">
+            <div class="card">
+                <h5 class="card-header">List All Organizations</h5>
+                <div class="card-body">
+                    <p class="card-text">View a complete list of all the organizations we work with.</p>
+                    <a th:href="@{/list-companies/company-results(column='All',value='View All')}">View All Organizations</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w-100"></div>
+</div>
+<style>
+div {
+    align-items: center;
+    justify-content: center;
+    text-align: -webkit-center;
+    flex-direction: inherit;
+    }
+
+.card-header:first-child {
+    border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+}
+
+.card-header {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgba(0,0,0,.03);
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    width: -webkit-fill-available;
+}
+
+.list-group {
+    display: inline-flex;
+    flex-direction: column;
+    margin-bottom: 0%;
+}
+
+.list-group-item:last-child {
+    border-bottom-right-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+}
+
+.list-group-item:first-child {
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+}
+
+.list-group-item {
+    position: inherit;
+}
+</style>
 </body>
 </html>
