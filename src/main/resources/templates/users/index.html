@@ -5,11 +5,10 @@
     <title>Users</title>
 </head>
 <body>
-    <nav th:replace="fragments :: navbar"></nav>
-    <br>
-    <br>
-<p>This page will be for searching for users by tags.</p>
-
+<nav th:replace="fragments :: navbar"></nav>
+<div style="margin-top: 5%">
+    <p>This page will be for searching for users by tags.</p>
+</div>
 <table class="table">
     <thead>
     <tr>
@@ -19,7 +18,6 @@
     <tr th:each="user : ${users}">
         <td><a th:href="'/users/detail?userId=' + ${user.id}" th:text="${user.username}"></a></td>
     </tr>
-
 </table>
 </body>
 </html>

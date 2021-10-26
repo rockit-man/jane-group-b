@@ -5,12 +5,10 @@
     <title>Delete Organization</title>
 </head>
 <body>
-<head th:replace="fragments :: head">
-    <nav th:replace="fragments :: navbar"></nav>
-    <br>
-    <br>
-<header th:replace="fragments :: admin-header"></header>
-
+<nav th:replace="fragments :: navbar"></nav>
+<div style="margin-top: 5%">
+    <header th:replace="fragments :: admin-header"></header>
+</div>
 <form method="post">
     <th:block th:each="company : ${companies}">
         <div class="form-group">
@@ -22,6 +20,5 @@
     </th:block>
     <input type="submit" value="Delete" class="btn btn-danger">
 </form>
-
 </body>
 </html>

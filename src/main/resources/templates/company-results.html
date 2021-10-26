@@ -5,13 +5,10 @@
 </head>
 <body>
 <nav th:replace="fragments :: navbar"></nav>
-
 <div style="margin-top: 5%">
     <header th:replace="fragments :: admin-header"></header>
 </div>
-
 <h1 class="d-flex justify-content-center"style="margin-top: 4%" th:text="${#strings.capitalizeWords(title)}"></h1>
-
 <ul class="list-group" style="margin-top: 2%">
     <li th:each="company : ${companies}">
         <div class="card" style="margin-top: 2%">
@@ -50,7 +47,6 @@
     <form th:action="@{/list-companies}">
         <button class="btn btn-lg btn-primary" type="submit">Go Back</button>
     </form>
-</div>
 </div>
 </body>
 </html>

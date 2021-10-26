@@ -7,15 +7,13 @@
 <body>
 <nav th:replace="fragments :: navbar"></nav>
 <a class="nav-link" style="margin-top: 10%" href="/list-volunteers">Back to List Volunteers by Cause</a></a>
-
 <div class="volunteer-listing">
     <p th:text="${'ID: ' + volunteer.id}"></p>
     <p th:text="${'Username: ' + volunteer.username}"></p>
-<!--    <p th:text="${'Email: ' + volunteer.email}"></p>-->
+    <p th:text="${'Email: ' + volunteer.email}"></p>
     <p>Email:</p>
     <a th:href="${'mailto:' + volunteer.email}" th:text="${volunteer.email}"></a>
-
-        <p> Causes:
+    <p> Causes:
     <ul th:each="tag : ${volunteer.tags}">
         <li th:text="${tag.name}"></li>
     </ul>

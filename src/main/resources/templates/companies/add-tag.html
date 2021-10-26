@@ -5,12 +5,10 @@
     <title>Create Tag</title>
 </head>
 <body>
-<head th:replace="fragments :: head">
-    <nav th:replace="fragments :: navbar"></nav>
-    <br>
-    <br>
-<header th:replace="fragments :: admin-header"></header>
-
+<nav th:replace="fragments :: navbar"></nav>
+<div style="margin-top: 5%">
+    <header th:replace="fragments :: admin-header"></header>
+</div>
 <form method="post">
     <div class="form-group">
         <input type="hidden" th:field="${companyTag.company}">
@@ -23,6 +21,5 @@
     </div>
     <input type="submit" class="btn btn-success" value="Add Tag">
 </form>
-
 </body>
 </html>

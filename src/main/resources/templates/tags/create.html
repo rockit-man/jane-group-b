@@ -5,12 +5,10 @@
     <title>Create Tag</title>
 </head>
 <body>
-<head th:replace="fragments :: head">
-    <nav th:replace="fragments :: navbar"></nav>
-    <br>
-    <br>
-<header th:replace="fragments :: admin-header"></header>
-
+<nav th:replace="fragments :: navbar"></nav>
+<div style="margin-top: 5%">
+    <header th:replace="fragments :: admin-header"></header>
+</div>
 <form method="post">
     <div class="form-group">
         <label>Name
@@ -20,6 +18,5 @@
     </div>
     <input type="submit" value="Create" class="btn btn-primary">
 </form>
-
 </body>
 </html>

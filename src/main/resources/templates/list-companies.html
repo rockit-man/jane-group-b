@@ -5,16 +5,13 @@
 </head>
 <body>
 <nav th:replace="fragments :: navbar"></nav>
-
 <div style="margin-top: 5%">
     <header th:replace="fragments :: admin-header"></header>
 </div>
-
 <div style="margin-top: 4%">
     <h1>Meet our partners!</h1>
     <p>We are thrilled to work with organizations that are helping. Get to know them!</p>
 </div>
-
 <div class="container" style="margin-top: 5%">
     <div class="row">
         <div class="col">
@@ -43,44 +40,44 @@
     <div class="w-100"></div>
 </div>
 <style>
-div {
-    align-items: center;
-    justify-content: center;
-    text-align: -webkit-center;
-    flex-direction: inherit;
+    div {
+        align-items: center;
+        justify-content: center;
+        text-align: -webkit-center;
+        flex-direction: inherit;
     }
 
-.card-header:first-child {
-    border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
-}
+    .card-header:first-child {
+        border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+    }
 
-.card-header {
-    padding: .75rem 1.25rem;
-    margin-bottom: 0;
-    background-color: rgba(0,0,0,.03);
-    border-bottom: 1px solid rgba(0,0,0,.125);
-    width: -webkit-fill-available;
-}
+    .card-header {
+        padding: .75rem 1.25rem;
+        margin-bottom: 0;
+        background-color: rgba(0,0,0,.03);
+        border-bottom: 1px solid rgba(0,0,0,.125);
+        width: -webkit-fill-available;
+    }
 
-.list-group {
-    display: inline-flex;
-    flex-direction: column;
-    margin-bottom: 0%;
-}
+    .list-group {
+        display: inline-flex;
+        flex-direction: column;
+        margin-bottom: 0%;
+    }
 
-.list-group-item:last-child {
-    border-bottom-right-radius: .25rem;
-    border-bottom-left-radius: .25rem;
-}
+    .list-group-item:last-child {
+        border-bottom-right-radius: .25rem;
+        border-bottom-left-radius: .25rem;
+    }
 
-.list-group-item:first-child {
-    border-top-left-radius: .25rem;
-    border-top-right-radius: .25rem;
-}
+    .list-group-item:first-child {
+        border-top-left-radius: .25rem;
+        border-top-right-radius: .25rem;
+    }
 
-.list-group-item {
-    position: inherit;
-}
+    .list-group-item {
+        position: inherit;
+    }
 </style>
 </body>
 </html>

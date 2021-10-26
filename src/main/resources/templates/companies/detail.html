@@ -5,12 +5,10 @@
     <title>Organization Details</title>
 </head>
 <body>
-<head th:replace="fragments :: head">
-    <nav th:replace="fragments :: navbar"></nav>
-    <br>
-    <br>
-<header th:replace="fragments :: admin-header"></header>
-
+<nav th:replace="fragments :: navbar"></nav>
+<div style="margin-top: 5%">
+    <header th:replace="fragments :: admin-header"></header>
+</div>
 <table>
     <tr>
         <th>Company ID</th>
@@ -31,8 +29,6 @@
         </td>
     </tr>
 </table>
-
 <a th:href="'/companies/add-tag?companyId=' + ${company.id}">Add Tag</a>
-
 </body>
 </html>
