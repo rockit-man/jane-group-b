@@ -9,17 +9,15 @@
 <div style="margin-top: 5%">
     <header th:replace="fragments :: admin-header"></header>
 </div>
-<table>
-    <thead>
-    <tr>
-        <th>Volunteers</th>
-    </tr>
-    </thead>
-    <tr th:each="volunteer : ${volunteers}">
-        <td><a th:href="'/volunteers/detail?volunteerId=' + ${volunteer.id}" th:text="${volunteer.username}"></a></td>
-
-    </tr>
-</table>
-
+<div style="margin-top: 5%">
+    <h1>All Volunteers</h1>
+</div>
+<div class="list-group" style="margin-top: 3%">
+    <div th:each="volunteer : ${volunteers}">
+        <a
+                th:href="'/volunteers/detail?volunteerId=' + ${volunteer.id}" class="list-group-item list-group-item-action"><td
+                th:text="${volunteer.username}"></td></a><br>
+    </div>
+</div>
 </body>
 </html>

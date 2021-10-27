@@ -6,29 +6,25 @@
 </head>
 <body class="text-center" style="width: 300px; margin: auto;">
 <nav th:replace="fragments :: navbar"></nav>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<div th:if="${param.error}">
-    Invalid username and password.
-</div>
-<div th:if="${param.logout}">
-    You have been logged out.
-</div>
-<div>
-    <h2>Sign into your account</h2>
-<form th:action="@{/login}" class="form-signin" style="margin-top: 5%" method="post">
-    <div><label for="username" class="sr-only"> User Name : </label>
-        <input type="text" class="form-control" placeholder="jsmith123" id="username" name="username" required/>
+<div style="margin-top: 40%">
+    <div th:if="${param.error}">
+        Invalid username and password.
     </div>
-    <div><label for="password" class="sr-only"> Password: </label>
-        <input type="password" class="form-control" placeholder="******" id="password" name="password" required/>
+    <div th:if="${param.logout}">
+        You have been logged out.
     </div>
-    <button class="btn btn-lg btn-primary" style="margin-top: 5%" type="submit">Sign In</button>
-</form>
+    <div>
+        <h2>Sign into your account</h2>
+        <form th:action="@{/login}" class="form-signin" style="margin-top: 5%" method="post">
+            <div><label for="username" class="sr-only"> User Name : </label>
+                <input type="text" class="form-control" placeholder="jsmith123" id="username" name="username" required/>
+            </div>
+            <div><label for="password" class="sr-only"> Password: </label>
+                <input type="password" class="form-control" placeholder="******" id="password" name="password" required/>
+            </div>
+            <button class="btn btn-lg btn-primary" style="margin-top: 5%" type="submit">Sign In</button>
+        </form>
+    </div>
 </div>
 </body>
 </html>

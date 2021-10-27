@@ -13,7 +13,8 @@
 </div>
 <div class="list-group" style="margin-top: 3%">
     <div th:each="tag : ${tags}">
-        <a href="#" class="list-group-item list-group-item-action"><td th:text="${tag.displayName}"></td></a>
+        <a th:href="'/tags/detail?tagId=' + ${tag.id}"
+           class="list-group-item list-group-item-action"><td th:text="${tag.displayName}"></td></a>
     </div>
 </div>
 <style>
