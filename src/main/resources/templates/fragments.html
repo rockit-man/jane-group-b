@@ -51,21 +51,36 @@
         </ul>
     </div>
 </nav>
-<header th:fragment="admin-header">
-    <ul class="nav justify-content-center">
-        <li class="nav-item"><a class="nav-link" href="/user-home">Back to User Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="/admin">Admin Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="/tags">All Causes by Tag</a></li>
-        <li class="nav-item"><a class="nav-link" href="/tags/create">Create New Tag</a></li>
-        <li class="nav-item"><a class="nav-link" href="/tags/delete">Delete Tags</a></li>
-        <li class="nav-item"><a class="nav-link" href="/volunteers">All Volunteers</a></li>
-        <li class="nav-item"><a class="nav-link" href="/volunteers/create">Create Volunteer</a></li>
-        <li class="nav-item"><a class="nav-link" href="/volunteers/delete">Delete Volunteers</a></li>
-        <li class="nav-item"><a class="nav-link" href="/companies">All Companies</a></li>
-        <li class="nav-item"><a class="nav-link" href="/companies/create">Create Company</a></li>
-        <li class="nav-item"><a class="nav-link" href="/companies/delete">Delete Companies</a></li>
-    </ul>
-</header>
+<div class="nav-scroller py-1 mb-2" >
+    <nav class="nav d-flex justify-content-between" th:fragment="admin-header">
+        <a class="p-2 text-muted" href="/user-home">Back to User Home</a>
+        <a class="p-2 text-muted" href="/admin">&nbsp;Admin Home</a>
+        <a class="p-2 text-muted" href="/tags">&nbsp;All Causes by Tag</a>
+        <a class="p-2 text-muted" href="/tags/create">&nbsp;Create New Tag</a>
+        <a class="p-2 text-muted" href="/tags/delete">&nbsp;Delete Tags</a>
+        <a class="p-2 text-muted" href="/volunteers">&nbsp;All Volunteers</a>
+        <a class="p-2 text-muted" href="/volunteers/create">&nbsp;Create Volunteer</a>
+        <a class="p-2 text-muted" href="/volunteers/delete">&nbsp;Delete Volunteers</a>
+        <a class="p-2 text-muted" href="/companies">&nbsp;All Companies</a>
+        <a class="p-2 text-muted" href="/companies/create">&nbsp;Create Company</a>
+        <a class="p-2 text-muted" href="/companies/delete">&nbsp;Delete Companies</a>
+    </nav>
+</div>
+<!--<header th:fragment="admin-header">-->
+<!--    <ul class="nav justify-content-center">-->
+<!--        <li class="nav-item"><a class="nav-link" href="/user-home">Back to User Home</a></li>-->
+<!--        <li class="nav-item"><a class="nav-link" href="/admin">Admin Home</a></li>-->
+<!--        <li class="nav-item"><a class="nav-link" href="/tags">All Causes by Tag</a></li>-->
+<!--        <li class="nav-item"><a class="nav-link" href="/tags/create">Create New Tag</a></li>-->
+<!--        <li class="nav-item"><a class="nav-link" href="/tags/delete">Delete Tags</a></li>-->
+<!--        <li class="nav-item"><a class="nav-link" href="/volunteers">All Volunteers</a></li>-->
+<!--        <li class="nav-item"><a class="nav-link" href="/volunteers/create">Create Volunteer</a></li>-->
+<!--        <li class="nav-item"><a class="nav-link" href="/volunteers/delete">Delete Volunteers</a></li>-->
+<!--        <li class="nav-item"><a class="nav-link" href="/companies">All Companies</a></li>-->
+<!--        <li class="nav-item"><a class="nav-link" href="/companies/create">Create Company</a></li>-->
+<!--        <li class="nav-item"><a class="nav-link" href="/companies/delete">Delete Companies</a></li>-->
+<!--    </ul>-->
+<!--</header>-->
 <header th:fragment="volunteer-header">
     <ul class="nav justify-content-center">
         <li class="nav-item"><a class="nav-link" href="/volunteer-home">Volunteer Dashboard</a></li>

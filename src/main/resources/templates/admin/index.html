@@ -7,7 +7,7 @@
 <body>
 <nav th:replace="fragments :: navbar"></nav>
 <div style="margin-top: 5%">
-    <header th:replace="fragments :: admin-header"></header>
+    <nav th:replace="fragments :: admin-header"></nav>
 </div>
 <div style="margin-top: 5%">
     <h1 th:inline="text">Hello, [[${#httpServletRequest.remoteUser}]]!</h1>
@@ -22,4 +22,12 @@
     </form>
 </div>
 </body>
+<style>
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+</style>
 </html>
